@@ -1,0 +1,53 @@
+import React from "react";
+import Tech from "../assets/tech.svg"
+let products = [  //some infos of container 
+    {
+        "title": "java",
+      
+    }
+    ,{
+      "title": "javascript"
+    }
+    ,{
+      "title": "python"
+    }
+    ,{
+      "title": "react"
+    }
+    ,{
+      "title": "c"
+    }
+    ,{
+      "title": "c++"
+    }
+    ,{
+      "title": "c#"
+    }
+    ,{
+      "title": "ruby"
+    }
+    ,{
+      "title": "swift"
+    }
+    ,{
+      "title": "flutter"
+    }
+    ]  
+export default function Category(){
+    return <>
+    <div className="  bg-title_2">
+      <p className="text-center text-2xl font-bold p-4">Popular Categories</p>
+      <div className="ml-14    max-lg:flex relative">
+      <div className="products grid grid-flow-dense gap-4 grid-cols-5 m-10"> {
+            products.map( (product,index)=>{
+                let {title} = product
+                return <div className="product border bg-white  h-40 w-40 capitalize text-center justify-center hover:ring-2"> <img src={Tech} alt="" className="border p-2 rounded-full bg-light h-12 ml-11 mr-11 mt-11 text-center " />
+                <p className="font-bold mr-5 m-2">{title}</p>
+                </div>
+            })
+        }
+      </div>
+      </div>
+    </div>
+    </>
+}
