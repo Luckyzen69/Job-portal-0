@@ -1,6 +1,7 @@
 import React from "react";
 import A from "../assets/A.png"
-
+import {BsFillArrowRightCircleFill} from 'react-icons/bs';
+import { Link } from "react-router-dom";
 let jobs = [ 
     { 
       "company":"Apple",
@@ -43,6 +44,7 @@ let jobs = [
 export default function Jobs() {
     return <>
     <div>
+    <div>
       <p className="font-poppins font-bold text-center text-2xl">All Popular Listed jobs</p>
       <div key={jobs} className="jobs ">{
         jobs.map((job,index)=>{
@@ -55,7 +57,7 @@ export default function Jobs() {
             <p className="mr-2 ">{location}</p>
             <p className="mr-2">{time}</p>
             <p>{salary}</p>
-            <button className="border-2 absolute top-0 right-0 mt-5 text-white capitalize font-sans hover:ring-2 rounded-lg p-4 bg-primary">view details</button>
+            <Link to="/details" className="border-2 absolute top-0 right-0 mt-5 text-white capitalize font-sans hover:ring-2 rounded-lg p-4 bg-primary">view details</Link>
             </div>
           </div>
           </div>
@@ -63,6 +65,10 @@ export default function Jobs() {
       }
 
       </div>
+    </div>
+    <div className="flex items-center justify-center">
+    <button className="border-1 hover:ring-2  text-xl capitalize  bg-primary text-white rounded p-4 m-5 w-44  justify-center flex  ">view more <BsFillArrowRightCircleFill className="flex ml-2 mt-1"/></button>
+    </div>
     </div>
     </>
 }

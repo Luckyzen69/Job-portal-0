@@ -1,24 +1,26 @@
 import Header from "./components/header"
-import Banner from "./components/banner"
-import Category from "./components/category"
-import Jobs from "./components/jobs"
-import {BsFillArrowRightCircleFill} from 'react-icons/bs';
+import Register from "./components/register";
+import Home from "./components/home"
+import ViewDetails from "./components/viewdetails";
+import {Routes,Route,Link} from 'react-router-dom'
+import Footer from "./components/footer";
+import Login from "./components/Login";
+import PostaJob from "./components/postajob";
+
 
 function App() {
   return (
     <>
-    <Header/>
-    <Banner/>
-    <Category/>
-    <Jobs/>
-    <div className="text-center font-sans ">
-     
-      <div className="border-1 hover:ring-2 relative text-2xl capitalize ml-96 bg-primary text-white rounded p-4 m-5 w-44  flex-wrap  ">view more <BsFillArrowRightCircleFill className="absolute right-0 top-5  ml-4"/></div>
-   
-      <footer className="bg-primary font-sans text-center  p-4 text-white">
-        <p>&copy; 2023 Jobs Portal. Designed By Lagzen Thakuri</p>
-      </footer>
-    </div>
+   <Header/>
+   <Routes>
+    <Route  path="/" element={<Home/>} />
+    <Route  path="/home" element={<Home/>} />
+    <Route path="/login" element={<Login/>} />
+    <Route path="/register" element={ <Register/>}/>
+    <Route path="/PostaJob" element={<PostaJob/>}/>
+    <Route path="/details" element={<ViewDetails/>}/>
+   </Routes>
+    <Footer/>
     </>
   ) 
 }

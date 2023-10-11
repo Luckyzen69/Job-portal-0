@@ -3,7 +3,7 @@ import Star from "../assets/starmall.png"
 export default function Banner() {
     return (
         <>
-         <div className="bg-light sm:flex sm:justify-between relative overflow-hidden coveer ">
+         <div className="bg-light lg:grid-cols-1 flex justify-between relative overflow-hidden coveer ">
       <div className="m-11 p-10">
         {/* Adding text to Banner  */}
         <h2 className=" text-7xl  tracking-wide font-bold" >
