@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import Star from "../assets/starmall.png"
 export default function Banner() {
     return (
@@ -14,7 +15,7 @@ export default function Banner() {
           <br />
           {/* adding search bar  */}
           <input type="search" name="search " id="search" className="border-2 p-2 w-96 " placeholder="Search by job title..." />
-          <label htmlFor="search"  className="bg-primary rounded p-2 absolute left-80 bottom-0 top-6 text-white hover:bg-red-500">Search</label>
+          <Link to="/error" htmlFor="search"  className="bg-primary rounded p-2 absolute left-80 bottom-0 top-6 text-white hover:bg-red-500">Search</Link>
         </div>
       </div> 
       {/*  adding image  */}

@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom"
+
+
 export default function ViewDetails(){
     return<>
     <p className="flex justify-center bg-light m-4 p-4 font-bold">Laravel Developer - Match Company Limited</p>
     <div className="capitalized flex m-2  justify-center"> 
         <button className="border ml-1 p-1 rounded">view company</button>
-        <button className="border ml-2 p-1 rounded bg-primary text-white">Apply to this job</button>
+        <Link to="/apply" className="border ml-2 p-1 rounded bg-primary text-white">Apply to this job</Link>
     </div>
     <div className="capitalized m-10">
         <p className="font-bold">Experience Level: <span className="font-normal">Mid-level</span></p>

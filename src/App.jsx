@@ -6,7 +6,8 @@ import {Routes,Route,Link} from 'react-router-dom'
 import Footer from "./components/footer";
 import Login from "./components/Login";
 import PostaJob from "./components/postajob";
-
+import Apply from "./components/apply";
+import Errore from "./components/error";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
     <Route path="/register" element={ <Register/>}/>
     <Route path="/PostaJob" element={<PostaJob/>}/>
     <Route path="/details" element={<ViewDetails/>}/>
+    <Route path="/apply" element={<Apply/>}/>
+    <Route path="/error" element={<Errore/>}/>
    </Routes>
     <Footer/>
     </>
