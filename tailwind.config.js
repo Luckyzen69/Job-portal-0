@@ -8,7 +8,10 @@ export default {
         light:"#eef6f3",
         third:"#616161",
         title_2:"#f7f7fb"
-      }
+      },
+      backgroundImage: {
+        'mebg': "url('../src/assets/starmall.png')",
+      },
     },
   },
   plugins: [],
