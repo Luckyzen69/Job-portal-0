@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom"
+import React from "react"
 export default function PostaJob(){
     return<>
     <h1 className="text-center text-2xl m-1 p-2 bg-light"> Create a Job</h1>
-    <div className="flex justify-center border   font-sans capitalize">
-    <form className="capitalized  ">
+    <div className="flex justify-center border   font-sans capitalize ">
+    <form className="capitalized   ">
         {/* making individual div for each input type */}
         <div className="grid sm:grid-cols-1 md:grid-cols-2">
             {/* for company name and website input */}
@@ -83,7 +85,7 @@ export default function PostaJob(){
             <textarea name="discription" cols="60" rows="10" placeholder="Job Discription" className="border cursor-text m-1 p-1  flex"></textarea>
         </div>
         <div className="grid text-start justify-end">
-        <button className="bg-primary m-2 p-2  rounded flex  text-start ">Post Job</button>
+        <Link to="/error" className="bg-primary m-2 p-2  rounded flex  text-start ">Post Job</Link>
         </div>
     </form>
     </div>

@@ -11,6 +11,7 @@ export default {
       },
       backgroundImage: {
         'mebg': "url('../src/assets/starmall.png')",
+        'onepiece': "url('../src/assets/onepiece.png')",
       },
     },
   },

@@ -12,8 +12,8 @@ export default function Login(){
             <input type="Username" placeholder="Username*" className="border m-2 p-2 w-96" />
             <label htmlFor="password" className="font-bold" >Password</label>
             <input type="password" name="password" id="password" placeholder="Password*" className="border m-2 mb-4 p-2 " />
-            <button className="border hover:ring-2 bg-primary text-white p-2 text-xl">Login</button>
-            <p className="font-sans p-2 m-2">Not a member? <Link to="/register" className="font-bold"> register</Link></p>
+            <Link to="/error" className="border hover:ring-2 bg-primary text-white text-center p-2 text-xl">Login</Link>
+            <Link to="/error" className="font-sans p-2 m-2">Not a member? <Link to="/register" className="font-bold"> register</Link></Link>
         </form>
         </div>
     </div>

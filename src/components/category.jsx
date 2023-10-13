@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Tech from "../assets/tech.svg"
 let products = [  //some infos of container 
     {
@@ -36,6 +37,7 @@ let products = [  //some infos of container
 export default function Category(){
     return <>
     <div>
+    <Link to="/error">
     <div className="  bg-title_2">
       <p className="text-center text-2xl font-bold p-4">Popular Categories</p>
       <div className="ml-14    max-lg:flex relative">
@@ -51,6 +53,7 @@ export default function Category(){
       </div>
     </div>
   
+    </Link>
     </div>
     </>
 }

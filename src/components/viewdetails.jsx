@@ -5,7 +5,7 @@ export default function ViewDetails(){
     return<>
     <p className="flex justify-center bg-light m-4 p-4 font-bold">Laravel Developer - Match Company Limited</p>
     <div className="capitalized flex m-2  justify-center"> 
-        <button className="border ml-1 p-1 rounded">view company</button>
+        <Link to="/error" className="border ml-1 p-1 rounded">view company</Link>
         <Link to="/apply" className="border ml-2 p-1 rounded bg-primary text-white">Apply to this job</Link>
     </div>
     <div className="capitalized m-10">
