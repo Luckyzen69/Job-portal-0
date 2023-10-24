@@ -68,7 +68,7 @@ export default function Jobs() {
       </div>
     </div>
     <div className="flex items-center justify-center">
-    <Link to="./error" className="border-1 hover:ring-2  text-xl capitalize  bg-primary text-white rounded p-4 m-5 w-44  justify-center flex  ">view more <BsFillArrowRightCircleFill className="flex ml-2 mt-1"/></Link>
+    <Link to="/error" className="border-1 hover:ring-2  text-xl capitalize  bg-primary text-white rounded p-4 m-5 w-44  justify-center flex  ">view more <BsFillArrowRightCircleFill className="flex ml-2 mt-1"/></Link>
     </div>
     </div>
     </>

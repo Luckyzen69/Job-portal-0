@@ -7,16 +7,9 @@
   margin: 0;
   box-sizing: border-box;
 }
-.coveer{
-  height: calc(100vh - 4rem);
-  width: 100vw;
-  max-width:100%;
-  margin: 0 auto ;
+.tooltip{
+  @apply invisible absolute
 }
-.me{
-  height: 150vh;
-  top: -17rem;
-  z-index: 1;
-  right: -1rem;
-  object-fit:cover;   
+.has-tooltip:hover .tooltip{
+  @apply visible z-20
 }

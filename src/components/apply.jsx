@@ -7,9 +7,9 @@ export default function Apply(){
         <h1 className="text-center font-bold text-xl m-4"> My Jobs Lists</h1>
     <div  className="flex-cols flex justify-center items-center">
             
-        <table>
+        <table className="m-2 ">
             <thead>
-                <tr>
+                <tr className="border ">
                     <th>Title</th>
                     <th>Job Type</th>
                     <th>Posted Date</th>
@@ -17,8 +17,8 @@ export default function Apply(){
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody >
+                <tr className="border">
                     <td>Laravel Developer</td>
                     <td>Full Time</td>
                     <td>12/06/2022</td>
@@ -27,7 +27,7 @@ export default function Apply(){
                         <span className="flex "> <AiOutlineEye/> <BiPencil/><AiOutlineDelete/> </span>
                     </td>
                 </tr>
-                <tr>
+                <tr className="border">
                     <td>Laravel Developer</td>
                     <td>Full Time</td>
                     <td>12/06/2022</td>
