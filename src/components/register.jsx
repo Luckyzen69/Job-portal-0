@@ -7,7 +7,7 @@ export default function Register(){
         <div className=" justify-center items-center  m-4 p-4      ">
         <form  className="grid m-4 justify-center border p-10 font-sans   ">
             <label htmlFor="login" className="font-bold">Username</label>
-            <input type="Username" placeholder="Username*" className="border m-2 p-2 w-96" />
+            <input type="Username" placeholder="Username*" className="border m-2 p-2 lg:w-96" />
             <label htmlFor="password" className="font-bold" >Password</label>
             <input type="password" name="password" id="password" placeholder="Password*" className="border m-2 mb-4 p-2 " />
             <div className="border m-1 p-1">
