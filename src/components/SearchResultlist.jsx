@@ -4,9 +4,9 @@ export const SearchResultList= ({results})=>{
     return <>
     <div className="flex flex-col">
     {results.map((result,id)=>{
-            return <SearchResult results={result} key={id}/>
+            return <SearchResult result={result} key={id}/>
         })}
     </div>
     </>
 }
-export default SearchResultList()   
+export default SearchResultList 

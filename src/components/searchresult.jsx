@@ -1,10 +1,10 @@
 import React from "react"
 
-export const SearchResult   = ( {results} ) => {
+export const SearchResult   = ( {result} ) => {
     return ( <>
-        <div className="flex flex-col"  onClick={(e)=> alert(`you clicked  ${results}`)}>
-            {results.title}
+        <div className="flex flex-col"  onClick={(e)=> alert(`you clicked  ${result}`)}>
+            {result.title}
         </div>
         </>)
 }
-export default SearchResult()
+export default SearchResult
