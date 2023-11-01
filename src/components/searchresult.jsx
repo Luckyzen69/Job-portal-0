@@ -1,12 +1,10 @@
+import React from "react"
 
-
-
-export default function SearchResult(){
-    return <>
-    <div>
-        {results.map((result,id)=>{
-            return <div key={id}>{result.title} </div>
-        })}
-    </div>
-    </>
+export const SearchResult   = ( {results} ) => {
+    return ( <>
+        <div className="flex flex-col"  onClick={(e)=> alert(`you clicked  ${results}`)}>
+            {results.title}
+        </div>
+        </>)
 }
+export default SearchResult()

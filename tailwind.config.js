@@ -11,7 +11,8 @@ export default {
         green:"#21f608",
         purple:"#f608ad",
         yellow: "#f6cf08",
-        orange:"#ff9100",
+        orange:"#ff9100", 
+        lightpurpl:"#FF6F91",
       },
       backgroundImage: {
         "ussop": "url('../src/assets/usopp.png')",
