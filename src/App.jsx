@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import PostaJob from "./components/postajob";
 import Apply from "./components/apply";
 import Errore from "./components/error";
+import SearchList from "./components/searchlist";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
     <Route path="/details" element={<ViewDetails/>}/>
     <Route path="/apply" element={<Apply/>}/>
     <Route path="/error" element={<Errore/>}/>
+    <Route path="/searchlist" element={<SearchList/>} />
    </Routes>
     <Footer/>
     </>
