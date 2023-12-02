@@ -1,14 +1,14 @@
 import Header from "./components/header"
-import Register from "./components/register";
+import Register from "./auth/register";
 import Home from "./components/home"
 import ViewDetails from "./components/viewdetails";
 import {Routes,Route,Link} from 'react-router-dom'
 import Footer from "./components/footer";
-import Login from "./components/Login";
-import PostaJob from "./components/postajob";
+import Login from "./auth/Login";
+import PostaJob from "./jobHandle/postajob";
 import Apply from "./components/apply";
-import Errore from "./components/error";
-import SearchList from "./components/searchlist";
+import Errore from "./handleError/error";
+import SearchList from "./search/searchlist";
 
 function App() {
   return (

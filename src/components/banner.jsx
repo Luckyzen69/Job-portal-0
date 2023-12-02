@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import SearchBar from "./searchbar";
-import  SearchResultList from "./searchresultlist";
+import SearchBar from "../search/searchbar";
+import  SearchResultList from "../search/SearchResultlist";
 export default function Banner() {
  
   const [results,setResults] = useState([])

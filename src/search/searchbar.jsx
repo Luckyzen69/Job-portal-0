@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
  import { useState } from "react";
-export const   SearchBar = ({ setResults  }) => {
+export const  SearchBar = ({ setResults  }) => {
     const [input,setInput] = useState("");
   const fetchApiData = value =>{
           fetch("https://mocki.io/v1/627d97a8-b073-4479-b18f-24e7400af486")

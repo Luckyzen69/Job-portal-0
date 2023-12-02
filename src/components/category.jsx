@@ -1,37 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Tech from "../assets/tech.svg"
+import { GiSpiderWeb } from "react-icons/gi";
+
 let products = [  //some infos of container 
     {
-        "title": "java",
+        "title": "Frontend",  
       
     }
     ,{
-      "title": "javascript"
+      "title": "Backend",
+
     }
     ,{
-      "title": "python"
+      "title": "Software Developer"
     }
     ,{
-      "title": "react"
+      "title": "Web Developer"
     }
     ,{
-      "title": "c"
+      "title": "Graphic Designer"
     }
     ,{
-      "title": "c++"
+      "title": "Game Developer"
     }
     ,{
-      "title": "c#"
+      "title": "Video Editor"
     }
     ,{
-      "title": "ruby"
+      "title": "App developer"
     }
     ,{
-      "title": "swift"
+      "title": "HR Specialist"
     }
     ,{
-      "title": "flutter"
+      "title": "Scrum Master"
     }
     ]  
 export default function Category(){
@@ -44,7 +47,8 @@ export default function Category(){
       <div className="products grid grid-flow-dense gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 m-10 grid-cols-1  xl:grid-cols-5"> {
             products.map( (product,index)=>{
                 let {title} = product
-                return <div className="product border bg-white  h-40 w-40 capitalize text-center justify-center hover:ring-2"> <img src={Tech} alt="" className="border p-2 rounded-full bg-light h-12 ml-11 mr-11 mt-11 text-center " />
+                return <div className="product border bg-white  h-40 w-40 capitalize text-center justify-center hover:ring-2"> 
+                <img src={Tech} alt="" className="border p-2 rounded-full bg-light h-12 ml-11 mr-11 mt-11 text-center " />
                 <p className="font-bold mr-5 m-2">{title}</p>
                 </div>
             })
@@ -52,7 +56,7 @@ export default function Category(){
       </div>
       </div>
     </div>
-  
+
     </Link>
     </div>
     </>
