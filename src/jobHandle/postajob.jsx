@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom"
 import React from "react"
-export default function PostaJob(){
+import { useEffect } from "react";
+
+export default function PostaJob({setProgress}){
+    useEffect(()=>{
+        setProgress(30);
+        setTimeout(()=>{
+            setProgress(100)
+        },1000);
+    },[]);
     return<>
     <h1 className="text-center text-2xl m-1 p-2 bg-light"> Create a Job</h1>
     <div className="flex justify-center border   font-sans capitalize ">

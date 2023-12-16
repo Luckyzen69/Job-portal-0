@@ -1,6 +1,13 @@
 import React from "react";
+import { useEffect } from "react";
 
-export default function SearchList(){
+export default function SearchList({setProgress}){
+    useEffect(()=>{
+        setProgress(30);
+        setTimeout(()=>{
+            setProgress(100)
+        },1000);
+    },[]);
     return <>
     <div>
        <table >

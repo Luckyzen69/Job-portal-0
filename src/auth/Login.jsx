@@ -1,7 +1,14 @@
 import React from "react";
 import Header from "../components/header";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-export default function Login(){
+export default function Login({setProgress}){
+    useEffect(()=>{
+        setProgress(30);
+        setTimeout(()=>{
+            setProgress(100)
+        },1000);
+    },[]);
     return<>
    
     <div className="">
