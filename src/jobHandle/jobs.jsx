@@ -2,6 +2,9 @@ import React from "react";
 import A from "../assets/A.png"
 import {BsFillArrowRightCircleFill} from 'react-icons/bs';
 import { Link } from "react-router-dom";
+import { MdLocationPin } from "react-icons/md";
+import { IoIosTime } from "react-icons/io";
+import { MdAttachMoney } from "react-icons/md";
 
 let jobs = [ 
     { 
@@ -56,9 +59,9 @@ export default function Jobs() {
             <p>{company}</p>
             <p className="font-bold ">{work}</p>
             <div className=" flex"> 
-            <p className="mr-2 ">{location}</p>
-            <p className="mr-2">{time}</p>
-            <p>{salary}</p>
+            <p className="mr-2 flex"><MdLocationPin className="mt-1 text-teal-700"/>{location}</p>
+            <p className="mr-2 flex"><IoIosTime className="mt-1 text-teal-700"/>{time}</p>
+            <p className="flex"><MdAttachMoney className="mt-1 text-xl text-teal-700"/>{salary}</p>
             <Link to="/details" className="border-2 absolute top-0 right-0 mt-5 text-white capitalize font-sans hover:ring-2 rounded-lg p-4 bg-primary">view details</Link>
             </div>
           </div>
