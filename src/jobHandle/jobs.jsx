@@ -54,15 +54,16 @@ export default function Jobs() {
       <div key={jobs} className="jobs ">{
         jobs.map((job,index)=>{
           let {company,work,location,time,salary}= job
-          return <div key={jobs} className="jobs  border-2 relative m-4 ring-black-2 hover:ring-4"><img src={A} alt="" className="border-2 h-24" />
-          <div className="absolute top-0 right-0 left-28 font-sans">
+          return <div key={index} className="jobs  border-2 relative m-1 sm:m-4 ring-black-2 hover:ring-4 grid grid-rows-2 sm:flex ">
+            <img src={A} alt="" className="border-2 h-24" />
+          <div className="absolute top-0 right-0 left-28 font-sans flex-auto">
             <p>{company}</p>
             <p className="font-bold ">{work}</p>
-            <div className=" flex"> 
+            <div className="flex "> 
             <p className="mr-2 flex"><MdLocationPin className="mt-1 text-teal-700"/>{location}</p>
             <p className="mr-2 flex"><IoIosTime className="mt-1 text-teal-700"/>{time}</p>
             <p className="flex"><MdAttachMoney className="mt-1 text-xl text-teal-700"/>{salary}</p>
-            <Link to="/details" className="border-2 absolute top-0 right-0 mt-5 text-white capitalize font-sans hover:ring-2 rounded-lg p-4 bg-primary">view details</Link>
+            <Link to="/details" className="border-2  top-32 absolute sm:top-0 sm:right-0 sm:mt-5 text-white capitalize font-sans hover:ring-2 rounded-lg p-4 bg-primary ">view details</Link>
             </div>
           </div>
           </div>
