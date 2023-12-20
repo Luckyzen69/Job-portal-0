@@ -12,7 +12,7 @@ let jobs = [
       "work":"Fresher UI/UX Designer (3 Year Exp.)",
       "location":"putalisadak",
       "time":"full time",
-      "salary":"Rs25000"
+      "salary":"Rs35000"
     },
     { 
       "company":"Microsoft",
@@ -26,21 +26,21 @@ let jobs = [
       "work":"Fresher UI/UX Designer (3 Year Exp.)",
       "location":"putalisadak",
       "time":"full time",
-      "salary":"Rs25000"
+      "salary":"Rs45000"
     },
     { 
       "company":"Amazone",
       "work":"Fresher UI/UX Designer (3 Year Exp.)",
       "location":"putalisadak",
       "time":"full time",
-      "salary":"Rs25000"
+      "salary":"Rs55000"
     },
     { 
       "company":"Meta",
       "work":"Fresher UI/UX Designer (3 Year Exp.)",
       "location":"putalisadak",
       "time":"full time",
-      "salary":"Rs25000"
+      "salary":"Rs85000"
     },
   ]
   
@@ -69,6 +69,7 @@ export default function Jobs() {
           </div>
         })
       }
+
 
       </div>
     </div>
