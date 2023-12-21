@@ -11,6 +11,7 @@ import Errore from "./handleError/error";
 import SearchList from "./search/searchlist";
 import { useState } from "react";
 import LoadingBar from "react-top-loading-bar";
+import Charts from "./components/charts";
 
 function App() {
   const [progress,setProgress] = useState(0);
@@ -28,6 +29,7 @@ function App() {
     <Route  path="/" element={<Home setProgress={setProgress}/>} />
     <Route  path="/home" element={<Home setProgress={setProgress}/>} />
     <Route path="/login" element={<Login setProgress={setProgress}/>} />
+    <Route path="/charts" element={<Charts setProgress={setProgress}/>} />
     <Route path="/register" element={ <Register setProgress={setProgress}/>}/>
     <Route path="/PostaJob" element={<PostaJob setProgress={setProgress}/>}/>
     <Route path="/details" element={<ViewDetails setProgress={setProgress}/>}/>

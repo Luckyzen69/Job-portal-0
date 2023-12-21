@@ -26,8 +26,9 @@ export default function Header() {
           ): !loading && ( 
             
           )} */}
-          <Link to="/login" className="mt-3 mr-4 hover:text-black">Login</Link>
-            <Link to="/PostaJob" className="border border-1 rounded-md p-2 bg-primary text-white hover:bg-red-600 m-0  ">Post a Job</Link>
+          <Link to="/charts" className="mt-3 ml-10 sm:mr-2 hover:text-black ">Charts</Link>
+          <Link to="/login" className="mt-3 sm:mr-4 ml-3 hover:text-black">Login</Link>
+            <Link to="/PostaJob" className="border border-1 rounded-md p-2 ml-10 bg-primary text-white hover:bg-red-600 m-0  ">Post a Job</Link>
       
         </div>
       </div>
