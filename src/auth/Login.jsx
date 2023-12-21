@@ -10,8 +10,9 @@ export default function Login({setProgress}){
         },1000);
     },[]);
     return<>
-   
-    <div className="">
+    
+                                    {/* login  */}
+    <div >
         <h2 className="text-2xl m-2 p-4 text-center bg-light " >Login</h2>
         <div className=" justify-center items-center flex m-2 p-4">
         <form  className="grid m-2 justify-center border rounded p-6 font-sans">
@@ -19,6 +20,7 @@ export default function Login({setProgress}){
             <input type="email" placeholder="email*" className="border flex m-2 p-2 lg:w-96 " />
             <label htmlFor="password" className="font-bold flex" >Password</label>
             <input type="password" name="password" id="password" placeholder="Password*" className="border flex m-2 mb-4 p-2 " />
+            {/* for role */}
             <label className="font-bold">Role</label>
             <select name="role" id="" className="m-2 p-2 border ">
                 <option value="">Applicant</option>
