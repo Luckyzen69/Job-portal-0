@@ -25,8 +25,8 @@ export default function Register({ setProgress }) {
           Register
         </h2>
         <div className=" justify-center items-center">
-          <form className="grid m-5 justify-center border rounded p-10 font-sans lg:grid-cols-2 md:grid-cols-2 gap-6">
-            <div  classname="flex gap-20">
+          <form className="grid m-2 justify-center border rounded p-5 font-sans lg:grid-cols-2 md:grid-cols-2 gap-6">
+            <div  classname="flex gap-2">
               <label htmlFor="register" className="font-bold">
                 Username
               </label>
@@ -37,7 +37,7 @@ export default function Register({ setProgress }) {
               />
             </div>
 
-            <div classname="flex">
+            <div classname="m-2">
               <label htmlFor="register" className="font-bold">
                 Email
               </label>
@@ -48,7 +48,7 @@ export default function Register({ setProgress }) {
               />
             </div>
 
-            <div classname="m-5">
+            <div classname="m-2">
               <label htmlFor="register" className="font-bold">
                 Phone
               </label>
@@ -59,17 +59,17 @@ export default function Register({ setProgress }) {
               />
             </div>
 
-            <div classname="m-5">
+            <div classname="m-2">
               <label htmlFor="register" className="font-bold">
                 Role
               </label>
-              <select name="role" id="role" className="border rounded p-2 m-2 w-full">
-                <option value="JobSeeker" id="JobSeeker">JobSeeker</option>
+              <select name="role" id="role" className="border rounded p-2 m-2 w-full row-start-1 col-start-1">
+                <option value="JobSeeker" id="JobSeeker" >JobSeeker</option>
                 <option value="JobRecuiter" id="JobRecuiter">JobRecuiter</option>
               </select>
             </div>
 
-            <div classname="m-5">
+            <div classname="m-2">
               <label htmlFor="password" className="font-bold">
                 Password
               </label>

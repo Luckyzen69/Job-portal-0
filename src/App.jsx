@@ -12,6 +12,7 @@ import SearchList from "./search/searchlist";
 import { useState } from "react";
 import LoadingBar from "react-top-loading-bar";
 import Charts from "./components/charts";
+import FAQ from "./components/faq";
 
 function App() {
   const [progress,setProgress] = useState(0);
@@ -30,6 +31,7 @@ function App() {
     <Route  path="/home" element={<Home setProgress={setProgress}/>} />
     <Route path="/login" element={<Login setProgress={setProgress}/>} />
     <Route path="/charts" element={<Charts setProgress={setProgress}/>} />
+    <Route path="/FAQ" element={<FAQ setProgress={setProgress}/>} />
     <Route path="/register" element={ <Register setProgress={setProgress}/>}/>
     <Route path="/PostaJob" element={<PostaJob setProgress={setProgress}/>}/>
     <Route path="/details" element={<ViewDetails setProgress={setProgress}/>}/>

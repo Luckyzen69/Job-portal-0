@@ -12,8 +12,10 @@ export default function Home({setProgress}){
         },1000);
     },[]);
     return<>
+   
     <Banner/>
     <Category/>
     <Jobs/>
+        
     </>
 }
