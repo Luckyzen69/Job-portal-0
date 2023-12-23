@@ -13,10 +13,12 @@ export default function Login({setProgress}){
     
                                     {/* login  */}
     <div >
-        <h2 className="text-2xl m-2 p-4 text-center bg-light " >Login</h2>
+
+        <h2 className="text-2xl m-2 p-4 text-center bg-light font-bold font-mono" >Login</h2>
+
         <div className=" justify-center items-center flex m-2 p-4  ">
         <form  className="grid m-2 justify-center border rounded p-6 font-sans">
-            <label htmlFor="login" className="font-bold flex">Email</label>
+            <label htmlFor="login" className="font-bold flex ">Email</label>
             <input type="email" placeholder="email*" className="border flex m-2 p-2 lg:w-96 " />
             <label htmlFor="password" className="font-bold flex" >Password</label>
             <input type="password" name="password" id="password" placeholder="Password*" className="border flex m-2 mb-4 p-2 " />

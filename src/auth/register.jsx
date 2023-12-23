@@ -21,7 +21,7 @@ export default function Register({ setProgress }) {
   return (
     <>
       <div>
-        <h2 className="text-2xl  p-4 text-center bg-light font-bold h-full w-full    ">
+        <h2 className="text-2xl  p-4 text-center bg-light font-bold h-full w-full font-mono   ">
           Register
         </h2>
         <div className=" justify-center items-center">
