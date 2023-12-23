@@ -18,10 +18,13 @@ export default {
         lightpink:" #FBEAEB"
       },
       backgroundImage: {
-        "ussop": "url('../src/assets/usopp.png')",
+
         "luffy": "url('../src/assets/luffy.png')",
-        "zoro": "url('../src/assets/zoro.png')",
-        "wano": "url('../src/assets/wano.png')",
+        "faq": "url('../src/assets/faq.jpg')",
+        "recuitment":"url('../src/assets/recruitment.jpg')",
+        "part-time": "url('../src/assets/part-time.jpg')",
+        "full-time": "url('../src/assets/full-time.jpg')",
+        "job": "url('../src/assets/job.jpg')",
       },
      
     },
