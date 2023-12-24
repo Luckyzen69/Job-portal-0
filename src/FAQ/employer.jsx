@@ -16,6 +16,6 @@ export default function Employers(){
         </div>
         </Link>
     </div>
-        <h1 className="bg-lightpink text-2xl font-bold flex justify-center">Employers</h1>
+        <h className="bg-lightpink text-2xl font-bold flex justify-center">Employers</h
     </>
     }

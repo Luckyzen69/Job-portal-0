@@ -21,7 +21,7 @@ export default {
 
         "luffy": "url('../src/assets/luffy.png')",
         "faq": "url('../src/assets/faq.jpg')",
-        "recuitment":"url('../src/assets/recruitment.jpg')",
+        "recuitment":"url('../src/assets/recuitment.jpg')",
         "part-time": "url('../src/assets/part-time.jpg')",
         "full-time": "url('../src/assets/full-time.jpg')",
         "job": "url('../src/assets/job.jpg')",
