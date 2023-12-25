@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import A from "../assets/A.png"
 import {BsFillArrowRightCircleFill} from 'react-icons/bs';
 import { Link } from "react-router-dom";
 import { MdLocationPin } from "react-icons/md";
 import { IoIosTime } from "react-icons/io";
 import { MdAttachMoney } from "react-icons/md";
+import { useState } from "react";
+
 
 let jobs = [ 
     { 
