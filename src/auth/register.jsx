@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 export default function Register({ setProgress }) {
+  const formRef = useRef(null); 
    let form = document.getElementsByClassName("form-field");
   useEffect(() => {
     setProgress(30);
@@ -11,18 +13,10 @@ export default function Register({ setProgress }) {
       setProgress(100);
     }, 1000);
   }, []);      
-    if (!form) {
-       <>
-       <div className="form-field ">
-            <label htmlFor="">Company</label>
-            <input type="text" className="border w-full" />
-          </div>
-       </>
-    }
 
     const navigate = useNavigate();
 
-    const  [User, setUser] = useState({
+    const  [user, setUser] = useState({
         username:"",
         email:"",
         password:"",
@@ -42,20 +36,23 @@ export default function Register({ setProgress }) {
     }
 
     // handeling the form submit
-    const handleSubmit = (e) =>{
+    const handleSubmit = async(e) =>{
+      e.preventDefault();
       console.log(user);
       try{
 
-        const response = fetch(`http://localhost:8000/api/signup/`,{
+        const response = await fetch(`http://localhost:8000/api/signup/`,{
           method: "POST",
           headers:{
             "Content-Type": "application/json",
           },
-          body:JSON.stringfy(user)
+          body: JSON.stringify(user),
+
         });
         if(response.ok) {
-          setUser({username:"",email:"",phone:"",password:""})
-          navigate("/api/login")
+          setUser({username:"",email:"",phone:"",password:""},()=>{
+            navigate("/login")
+          });
         }
         console.log(response);
       } catch(error){
@@ -68,10 +65,12 @@ export default function Register({ setProgress }) {
       <div>
         <h2 className="text-2xl  p-4 text-center bg-light font-bold h-full w-full font-mono   ">
           Register
-        </h2>
+        </h2> 
         <div className=" justify-center items-center">
-          <form className="grid m-2 justify-center border rounded p-5 font-sans lg:grid-cols-2 md:grid-cols-2 gap-6">
-            <div  classame="flex gap-2">
+          <form className="grid m-2 justify-center border rounded p-5 font-sans lg:grid-cols-2 md:grid-cols-2 gap-6"
+           onSubmit={handleSubmit}    ref={formRef} >
+
+            <div >
               <label htmlFor="username" className="font-bold">
                 Username
               </label>
@@ -81,7 +80,7 @@ export default function Register({ setProgress }) {
                 type="text"
                 placeholder="Username*"
                 className="border rounded m-2 p-2 w-full "
-              />
+                />
             </div>
 
             <div className="m-2">
@@ -94,7 +93,7 @@ export default function Register({ setProgress }) {
                 name="email"
                 placeholder="Email*"
                 className="border rounded m-2 p-2 w-full"
-              />
+                />
             </div>
 
             <div className="m-2">
@@ -102,12 +101,12 @@ export default function Register({ setProgress }) {
                 Phone
               </label>
               <input
-                type="number"
+                type="string"
                 name="phone"
                 id="phone"
                 placeholder="Number*"
                 className="border rounded m-2 p-2 w-full"
-              />
+                />
             </div>
 
             <div className="m-2">
@@ -120,6 +119,13 @@ export default function Register({ setProgress }) {
               </select>
             </div>
 
+                {user ? (
+                 <div className="form-field">
+                   <label htmlFor="JobRecuiter">Company</label>
+                   <input type="text" className="border w-full" />
+                 </div>
+               ) : null}
+               
             <div className="m-2">
               <label htmlFor="password"  className="font-bold">
                 Password

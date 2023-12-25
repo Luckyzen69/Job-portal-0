@@ -2,6 +2,7 @@ import { RiUserSearchLine } from "react-icons/ri";
 import { HiBuildingOffice2 } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import FAQbanner from "./FAQbanner";
+import { MdPersonSearch } from "react-icons/md";
 
 export default function FAQ(){
     return<>
@@ -26,10 +27,20 @@ export default function FAQ(){
     </div>
                           {/*  Main Questions */}
     <h2 className="text-gray-400 text-center font-bold text-2xl underline underline-offset-8 hover:text-gray-800"> Most Popular FAQs</h2>
-    <div className="flex">
+    <div className="grid grid-cols-2 m-5">
 
     <div className="border m-2 p-2">
+    <MdPersonSearch />
        <p>How much do you charge for placement?</p>
+    </div>
+    <div className="border m-2 p-2">
+       <p>What kind of jobs should I apply to?</p>
+    </div>
+    <div className="border m-2 p-2">
+       <p>Can someone review my resume and give me advice?</p>
+    </div>
+    <div className="border m-2 p-2">
+       <p>How can I register my profile at merojob?</p>
     </div>
     
     </div>
