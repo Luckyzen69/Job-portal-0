@@ -70,6 +70,7 @@ export default function Register({ setProgress }) {
           <form className="grid m-2 justify-center border rounded p-5 font-sans lg:grid-cols-2 md:grid-cols-2 gap-6"
            onSubmit={handleSubmit}    ref={formRef} >
 
+            {/* username */}
             <div >
               <label htmlFor="username" className="font-bold">
                 Username
@@ -82,9 +83,10 @@ export default function Register({ setProgress }) {
                 className="border rounded m-2 p-2 w-full "
                 />
             </div>
-
+                        
+                        {/* email  */}
             <div className="m-2">
-              <label htmlFor="email" className="font-bold">
+              <label htmlFor="email"  className="font-bold">
                 Email
               </label>
               <input
@@ -93,6 +95,8 @@ export default function Register({ setProgress }) {
                 name="email"
                 placeholder="Email*"
                 className="border rounded m-2 p-2 w-full"
+                value={user.email} 
+                 onChange={HandleInput}
                 />
             </div>
 
@@ -118,14 +122,6 @@ export default function Register({ setProgress }) {
                 <option value="JobRecuiter" id="JobRecuiter">JobRecuiter</option>
               </select>
             </div>
-
-                {user ? (
-                 <div className="form-field">
-                   <label htmlFor="JobRecuiter">Company</label>
-                   <input type="text" className="border w-full" />
-                 </div>
-               ) : null}
-               
             <div className="m-2">
               <label htmlFor="password"  className="font-bold">
                 Password
@@ -135,6 +131,19 @@ export default function Register({ setProgress }) {
                 name="password"
                 id="password"
                 placeholder="Password*"
+                autoComplete="off"
+                className="border rounded m-2 mb-4 p-2  w-full"
+              />
+            </div>
+            <div className="m-2">
+              <label htmlFor="password"  className="font-bold">
+                Conform Password
+              </label>
+              <input
+                type="cpassword"
+                name="cpassword"
+                id="cpassword"
+                placeholder=" confirm Password*"
                 autoComplete="off"
                 className="border rounded m-2 mb-4 p-2  w-full"
               />
