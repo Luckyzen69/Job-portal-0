@@ -17,7 +17,7 @@ export default function Register({ setProgress }) {
     const navigate = useNavigate();
 
     const  [user, setUser] = useState({
-        username:"",
+        username:"",  
         email:"",
         password:"",
         phone:""  
@@ -45,10 +45,16 @@ export default function Register({ setProgress }) {
           method: "POST",
           headers:{
             "Content-Type": "application/json",
+            Accept:"application/json",
+            "Access-Control-Allow-Origin":"*" 
           },
           body: JSON.stringify(user),
 
-        });
+        }).then((res)=>res.json())
+        .then((data)=>{
+          console.log(data);
+        })
+
         if(response.ok) {
           setUser({username:"",email:"",phone:"",password:""},()=>{
             navigate("/login")
@@ -96,7 +102,7 @@ export default function Register({ setProgress }) {
                 placeholder="Email*"
                 className="border rounded m-2 p-2 w-full"
                 value={user.email} 
-                 onChange={HandleInput}
+                  onChange={HandleInput}
                 />
             </div>
 
@@ -140,7 +146,7 @@ export default function Register({ setProgress }) {
                 Conform Password
               </label>
               <input
-                type="cpassword"
+                type="password"
                 name="cpassword"
                 id="cpassword"
                 placeholder=" confirm Password*"

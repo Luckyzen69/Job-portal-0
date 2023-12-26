@@ -40,7 +40,7 @@ function App() {
     <Route path="/jobseekers" element={<Jobseekers setProgress={setProgress}/>} />
     <Route path="/register" element={ <Register setProgress={setProgress}/>}/>
     <Route path="/PostaJob" element={<PostaJob setProgress={setProgress}/>}/>
-    <Route path="/details" element={<ViewDetails setProgress={setProgress}/>}/>
+    <Route path="/details" ele  ment={<ViewDetails setProgress={setProgress}/>}/>
     <Route path="/apply" element={<Apply setProgress={setProgress}/>}/>
     <Route path="/error" element={<Errore setProgress={setProgress}/>}/>
     <Route path="/searchlist" element={<SearchList setProgress={setProgress}/>} />
