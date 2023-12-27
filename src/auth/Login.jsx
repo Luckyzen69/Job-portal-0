@@ -1,7 +1,7 @@
-import React from "react";
-import Header from "../components/header";
+import React, { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 export default function Login({setProgress}){
     useEffect(()=>{
         setProgress(30);
@@ -9,6 +9,33 @@ export default function Login({setProgress}){
             setProgress(100)
         },1000);
     },[]);
+
+    const navigate = useNavigate()
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+                  
+    async function submit(e){
+        e.preventDefault()
+        try{
+
+         await axios.post('http://localhost:8000/api/login/',{
+                email:email,
+                password:password
+            })
+            .then(res=>{
+                console.log(res.data);
+                alert('success')
+                localStorage.setItem('token',res.data.token)
+                navigate('/home',{state:{id:email}})
+            })
+            .catch(e=>{
+                alert("wrong email or password")
+                console.log(e);
+            })
+        }catch(e){
+            console.log(e);
+        }
+        }
     return<>
     
                                     {/* login  */}
@@ -17,10 +44,10 @@ export default function Login({setProgress}){
         <h2 className="text-2xl m-2 p-4 text-center bg-light font-bold font-mono" >Login</h2>
 
         <div className=" justify-center items-center flex m-2 p-4  ">
-        <form className="grid m-2 justify-center border rounded p-6 font-sans">
+        <form className="grid m-2 justify-center border rounded p-6 font-sans" action="POST">
             <label htmlFor="login" className="font-bold flex ">Email</label>
-            <input type="email" placeholder="email*" className="border flex m-2 p-2 lg:w-96 " />
-            <label htmlFor="password" className="font-bold flex" >Password</label>
+            <input type="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder="email*" className="border flex m-2 p-2 lg:w-96 " />
+            <label htmlFor="password" onChange={(e)=>{setPassword(e.target.value)}}  className="font-bold flex" >Password</label>
             <input type="password" name="password" id="password" placeholder="Password*" className="border flex m-2 mb-4 p-2 " />
             {/* for role */}
             <label className="font-bold">Role</label>
@@ -28,7 +55,7 @@ export default function Login({setProgress}){
                 <option value="">Applicant</option>
                 <option value="">Recuiter</option>
             </select>
-            <button type="submit" className="border flex hover:ring-2 bg-primary justify-center text-white text-center p-2 text-xl">Login</button>
+            <button type="submit" onClick={submit} className="border flex hover:ring-2 bg-primary justify-center text-white text-center p-2 text-xl">Login</button>
             <Link to="/error" className="font-sans p-2 m-2">Not a member? <Link to="/register" className="font-bold"> register</Link></Link>
         </form>
         </div>

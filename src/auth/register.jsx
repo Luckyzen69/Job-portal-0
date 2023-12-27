@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
+import axios from "axios";
 
 export default function Register({ setProgress }) {
-  const formRef = useRef(null); 
-   let form = document.getElementsByClassName("form-field");
-  useEffect(() => {
+
+     useEffect(() => {
     setProgress(30);
     setTimeout(() => {
       setProgress(100);
@@ -16,33 +15,24 @@ export default function Register({ setProgress }) {
 
     const navigate = useNavigate();
 
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     const  [user, setUser] = useState({
         username:"",  
         email:"",
         password:"",
-        phone:""  
+        phone:"" ,
+        role:"" ,
     })
 
-    //handeling input values
-    const HandleInput = (e)=>{
-      console.log(e);
-      let name = e.target.name;
-      let value = e.target.value;
-
-      setUser({
-        ... user,
-        [name]: value,
-      })
-    }
 
     // handeling the form submit
-    const handleSubmit = async(e) =>{
+    async function submit(e) {
       e.preventDefault();
       console.log(user);
       try{
 
-        const response = await fetch(`http://localhost:8000/api/signup/`,{
-          method: "POST",
+        await axios.post(`http://localhost:8000/api/signup/`,{
           headers:{
             "Content-Type": "application/json",
             Accept:"application/json",
@@ -50,16 +40,15 @@ export default function Register({ setProgress }) {
           },
           body: JSON.stringify(user),
 
-        }).then((res)=>res.json())
-        .then((data)=>{
-          console.log(data);
+          }).then((res)=>{
+            if(res.data="exist"){
+              alert('User  already  exists')
+            }else if(res.data="notexist"){
+              alert('success')
+              localStorage.setItem('token',res.data.token)
+              navigate("/home",{state:{id:email}})
+            }
         })
-
-        if(response.ok) {
-          setUser({username:"",email:"",phone:"",password:""},()=>{
-            navigate("/login")
-          });
-        }
         console.log(response);
       } catch(error){
         console.log("register",error);
@@ -73,8 +62,7 @@ export default function Register({ setProgress }) {
           Register
         </h2> 
         <div className=" justify-center items-center">
-          <form className="grid m-2 justify-center border rounded p-5 font-sans lg:grid-cols-2 md:grid-cols-2 gap-6"
-           onSubmit={handleSubmit} onLoad={form}   ref={formRef} >
+          <form method="POST" className="grid m-2 justify-center border rounded p-5 font-sans lg:grid-cols-2 md:grid-cols-2 gap-6" >
 
             {/* username */}
             <div >
@@ -92,18 +80,16 @@ export default function Register({ setProgress }) {
                         
                         {/* email  */}
             <div className="m-2">
-              <label htmlFor="email"  className="font-bold">
+              <label htmlFor="email"   className="font-bold">
                 Email
               </label>
               <input
                 type="email"
                 id="email"
+                onChange={(e)=>{setEmail(e.target.value)}}
                 name="email"
                 placeholder="Email*"
-                className="border rounded m-2 p-2 w-full"
-                value={user.email} 
-                  onChange={HandleInput}
-                />
+                className="border rounded m-2 p-2 w-full" />
             </div>
 
             <div className="m-2">
@@ -135,6 +121,7 @@ export default function Register({ setProgress }) {
               <input
                 type="password"
                 name="password"
+                onChange={(e)=>{setPassword(e.target.value)}}
                 id="password"
                 placeholder="Password*"
                 autoComplete="off"
@@ -148,6 +135,7 @@ export default function Register({ setProgress }) {
               <input
                 type="password"
                 name="cpassword"
+                onChange={(e)=>{setPassword(e.target.value)}}
                 id="cpassword"
                 placeholder=" confirm Password*"
                 autoComplete="off"
@@ -166,8 +154,7 @@ export default function Register({ setProgress }) {
                 <option value="female">Female</option>
             </select>
            </div>
-x``
-            <button type="submit"
+            <button type="submit" onClick={submit}
               className="border rounded hover:ring-2 bg-primary text-center text-white p-2 text-xl m-2 ">
               Create Account
             </button>

@@ -23,7 +23,7 @@ return<>
         <h1 className="font-bold bg-lightpink  text-center justify-center items-center flex text-2xl">Jobseekers</h1>
         <div>
             
-            <div className="grid grid-cols-1 text-start sm:grid-cols-2">
+            <div className="grid grid-cols-1 text-start ">
                 {JobseekerQuestions.map((JobseekerQuestion)=>{
                 return <SingleQuestion key={JobseekerQuestion} {...JobseekerQuestion} />
                 })}

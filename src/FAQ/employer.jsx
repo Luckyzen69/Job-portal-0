@@ -22,7 +22,8 @@ export default function Employers(){
     </div>
         <h1 className="bg-lightpink text-2xl font-bold flex justify-center">Employers</h1>
         <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 text-start">
+          
+            <div className="grid grid-cols-1 text-start">
                 {EmployerQuestions.map((EmployerQuestion) => {
                     return <SingleQuestion key={EmployerQuestion.id} {...EmployerQuestion}  />
                 })}
