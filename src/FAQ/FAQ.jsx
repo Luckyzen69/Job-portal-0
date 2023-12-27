@@ -37,11 +37,11 @@ export default function FAQ({setProgress}){
         </div>
     </div>
                           {/*  Main Questions */}
-    <h2 className="text-gray-400 text-center font-bold text-2xl underline underline-offset-8 hover:text-gray-800"> Most Popular FAQs</h2>
+    <h2 className="text-gray-800 text-center font-bold text-2xl underline underline-offset-8"> Most Popular FAQs</h2>
     
     
     
-    <div className=" m-2 p-2 text-center grid  grid-cols-2 justify-center">
+    <div className=" m-2 p-2 grid  grid-cols-1 sm:grid-cols-2 text-start justify-center">
   
     {questions.map((question)=>{
         return <SingleQuestion  key={question.id} {...question} />;
