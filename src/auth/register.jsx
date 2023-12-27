@@ -74,7 +74,7 @@ export default function Register({ setProgress }) {
         </h2> 
         <div className=" justify-center items-center">
           <form className="grid m-2 justify-center border rounded p-5 font-sans lg:grid-cols-2 md:grid-cols-2 gap-6"
-           onSubmit={handleSubmit}    ref={formRef} >
+           onSubmit={handleSubmit} onLoad={form}   ref={formRef} >
 
             {/* username */}
             <div >
@@ -166,7 +166,7 @@ export default function Register({ setProgress }) {
                 <option value="female">Female</option>
             </select>
            </div>
-
+x``
             <button type="submit"
               className="border rounded hover:ring-2 bg-primary text-center text-white p-2 text-xl m-2 ">
               Create Account

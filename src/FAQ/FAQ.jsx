@@ -2,9 +2,20 @@ import { RiUserSearchLine } from "react-icons/ri";
 import { HiBuildingOffice2 } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import FAQbanner from "./FAQbanner";
-import { MdPersonSearch } from "react-icons/md";
+import { useEffect } from "react";
+import { useState } from "react";
+import data from "./data"
+import SingleQuestion from "./SingleQuestion";
 
-export default function FAQ(){
+export default function FAQ({setProgress}){
+    useEffect(()=>{
+        setProgress(30);
+        setTimeout(()=>{
+            setProgress(100)
+        },1000);
+    },[]);
+    
+    const [questions,setQuestions]= useState(data)
     return<>
     <FAQbanner/>
     <p className="text-xl text-gray-600 text-center bg-light p-4 font-mono">Please share your identity for assistance</p>
@@ -27,21 +38,14 @@ export default function FAQ(){
     </div>
                           {/*  Main Questions */}
     <h2 className="text-gray-400 text-center font-bold text-2xl underline underline-offset-8 hover:text-gray-800"> Most Popular FAQs</h2>
-    <div className="grid grid-cols-2 m-5">
-
-    <div className="border m-2 p-2">
-    <MdPersonSearch />
-       <p>How much do you charge for placement?</p>
-    </div>
-    <div className="border m-2 p-2">
-       <p>What kind of jobs should I apply to?</p>
-    </div>
-    <div className="border m-2 p-2">
-       <p>Can someone review my resume and give me advice?</p>
-    </div>
-    <div className="border m-2 p-2">
-       <p>How can I register my profile at merojob?</p>
-    </div>
+    
+    
+    
+    <div className=" m-2 p-2 text-center grid  grid-cols-2 justify-center">
+  
+    {questions.map((question)=>{
+        return <SingleQuestion  key={question.id} {...question} />;
+    })}
     
     </div>
     </>
