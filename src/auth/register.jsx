@@ -158,6 +158,11 @@ export default function Register({ setProgress }) {
               className="border rounded hover:ring-2 bg-primary text-center text-white p-2 text-xl m-2 ">
               Create Account
             </button>
+            <div>
+              
+           <p className="font-bold">Already have an account?</p>
+           <Link to="/login"  className="underline ">Login</Link>
+            </div>
           </form>
         </div>
       </div>
