@@ -160,7 +160,7 @@ export default function Register({ setProgress }) {
             </button>
             <div>
               
-           <p className="font-bold">Already have an account?</p>
+           <p className="font-bold font-sans">Already have an account?</p>
            <Link to="/login"  className="underline ">Login</Link>
             </div>
           </form>
