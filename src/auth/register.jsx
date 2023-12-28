@@ -16,34 +16,38 @@ export default function Register({ setProgress }) {
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("")
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const  [user, setUser] = useState({
-        username:"",  
-        email:"",
-        password:"",
-        phone:"" ,
-        role:"" ,
-    })
+    const [phone, setPhone] = useState("")
+    const [role, setRole] = useState("")
+    const [gender, setGender] = useState("")
+    // const  [user, setUser] = useState({
+    //     username:"",  
+    //     email:"",
+    //     password:"",
+    //     phone:"" ,
+    //     role:"" ,
+    //     gender:""
+    // })
 
 
     // handeling the form submit
     async function submit(e) {
       e.preventDefault();
-      console.log(user);
+      // console.log(user);
       try{
 
         await axios.post(`http://localhost:8000/api/signup/`,{
-          headers:{
-            "Content-Type": "application/json",
-            Accept:"application/json",
-            "Access-Control-Allow-Origin":"*" 
-          },
-          body: JSON.stringify(user),
+          username:username, 
+          email:email,
+          password:password,
+          phone:phone,
+          gender:gender,
 
-          }).then((res)=>{
-            if(res.data="exist"){
+       }).then((res)=>{
+            if(res.data==="exist"){
               alert('User  already  exists')
-            }else if(res.data="notexist"){
+            }else if(res.data==="notexist"){
               alert('success')
               localStorage.setItem('token',res.data.token)
               navigate("/home",{state:{id:email}})
@@ -74,6 +78,7 @@ export default function Register({ setProgress }) {
                 name="username"
                 type="text"
                 placeholder="Username*"
+                onChange={(e)=>{setUsername(e.target.value)}}
                 className="border rounded m-2 p-2 w-full "
                 />
             </div>
@@ -100,6 +105,7 @@ export default function Register({ setProgress }) {
                 type="string"
                 name="phone"
                 id="phone"
+                onChange={(e)=>{setPhone(e.target.value)}}
                 placeholder="Number*"
                 className="border rounded m-2 p-2 w-full"
                 />
@@ -110,8 +116,8 @@ export default function Register({ setProgress }) {
                 Role
               </label>
               <select name="role" id="role" className="border rounded p-2 m-2 w-full row-start-1 col-start-1">
-                <option value="JobSeeker" id="JobSeeker" >JobSeeker</option>
-                <option value="JobRecuiter" id="JobRecuiter">JobRecuiter</option>
+                <option value="JobSeeker" id="JobSeeker"   onChange={(e)=>{setRole(e.target.value)}} >JobSeeker</option>
+                <option value="JobRecuiter" id="JobRecuiter"   onChange={(e)=>{setRole(e.target.value)}}>JobRecuiter</option>
               </select>
             </div>
             <div className="m-2">
@@ -130,7 +136,7 @@ export default function Register({ setProgress }) {
             </div>
             <div className="m-2">
               <label htmlFor="password"  className="font-bold">
-                Conform Password
+                Confirm Password
               </label>
               <input
                 type="password"
@@ -150,8 +156,8 @@ export default function Register({ setProgress }) {
            >
             <label htmlFor="gender" className="font-bold">Gender</label>
             <select name="gender" id="gender" className="border rounded m-2 p-2 w-full ">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option value="male"   onChange={(e)=>{setGender(e.target.value)}}>Male</option>
+                <option value="female"   onChange={(e)=>{setGender(e.target.value)}}>Female</option>
             </select>
            </div>
             <button type="submit" onClick={submit}
