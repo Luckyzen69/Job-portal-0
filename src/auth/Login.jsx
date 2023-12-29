@@ -43,20 +43,20 @@ export default function Login({setProgress}){
 
         <h2 className="text-2xl m-2 p-4 text-center bg-light font-bold font-mono" >Login</h2>
 
-        <div className=" justify-center items-center flex m-2 p-4  ">
+        <div className=" justify-center items-center flex m-8 p-4  ">
         <form className="grid m-2 justify-center border rounded p-6 font-sans" action="POST">
             <label htmlFor="login" className="font-bold flex ">Email</label>
             <input type="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder="email*" className="border flex m-2 p-2 lg:w-96 " />
             <label htmlFor="password" onChange={(e)=>{setPassword(e.target.value)}}  className="font-bold flex" >Password</label>
             <input type="password" name="password" id="password" placeholder="Password*" className="border flex m-2 mb-4 p-2 " />
-            {/* for role */}
-            <label className="font-bold">Role</label>
-            <select name="role" id="" className="m-2 p-2 border ">
-                <option value="">Applicant</option>
-                <option value="">Recuiter</option>
-            </select>
             <button type="submit" onClick={submit} className="border flex hover:ring-2 bg-primary justify-center text-white text-center p-2 text-xl">Login</button>
-            <Link to="/error" className="font-sans p-2 m-2">Not a member? <Link to="/register" className="font-bold"> register</Link></Link>
+
+            <div className="flex m-4">
+
+            <p className="font-sans  mr-2">Not a member?
+             </p>
+             <Link to="/register" className="font-bold"> register</Link>
+            </div>
         </form>
         </div>
     </div>

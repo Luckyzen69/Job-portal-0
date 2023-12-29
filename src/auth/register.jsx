@@ -18,6 +18,7 @@ export default function Register({ setProgress }) {
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [cpassword, setCpassword] = useState("")
     const [phone, setPhone] = useState("")
     const [role, setRole] = useState("")
     const [gender, setGender] = useState("")
@@ -38,11 +39,13 @@ export default function Register({ setProgress }) {
       try{
 
         await axios.post(`http://localhost:8000/api/signup/`,{
-          username:username, 
-          email:email,
-          password:password,
-          phone:phone,
-          gender:gender,
+          username, 
+          email,
+          password,
+          cpassword,
+          phone,
+          gender,
+          role,
 
        }).then((res)=>{
             if(res.data==="exist"){
@@ -53,7 +56,7 @@ export default function Register({ setProgress }) {
               navigate("/home",{state:{id:email}})
             }
         })
-        console.log(response);
+        console.log(res);
       } catch(error){
         console.log("register",error);
       }
@@ -141,7 +144,7 @@ export default function Register({ setProgress }) {
               <input
                 type="password"
                 name="cpassword"
-                onChange={(e)=>{setPassword(e.target.value)}}
+                onChange={(e)=>{setCpassword(e.target.value)}}
                 id="cpassword"
                 placeholder=" confirm Password*"
                 autoComplete="off"
