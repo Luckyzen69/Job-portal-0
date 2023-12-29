@@ -48,8 +48,8 @@ export default function Login({setProgress}){
             <label htmlFor="login" className="font-bold flex ">Email</label>
             <input type="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder="email*" className="border flex m-2 p-2 lg:w-96 " />
             <label htmlFor="password" onChange={(e)=>{setPassword(e.target.value)}}  className="font-bold flex" >Password</label>
-            <input type="password" name="password" id="password" placeholder="Password*" className="border flex m-2 mb-4 p-2 " />
-            <button type="submit" onClick={submit} className="border flex hover:ring-2 bg-primary justify-center text-white text-center p-2 text-xl">Login</button>
+            <input type="password" autoComplete="off" name="password" id="password" placeholder="Password*" className="border flex m-2 mb-4 p-2 " />
+            <button type="submit"  onClick={submit} className="border flex hover:ring-2 bg-primary justify-center text-white text-center p-2 text-xl">Login</button>
 
             <div className="flex m-4">
 
