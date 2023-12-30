@@ -11,7 +11,7 @@ const questions=[
     },
     {
         id:3,
-        title:"I have applied in a vacancy, how will I be informed if I am shortlisted for further process??",
+        title:"How will I be informed if I am shortlisted for further process??",
         info:"If you are selected for the applied vacancy, Real Solutions or the concerned company will inform you via email and SMS. "
     },
     {
@@ -36,7 +36,7 @@ const questions=[
     },
     {
         id:7,
-        title:" What information do I need to provide when registering a profile on Hamro Job?",
+        title:" What information do I need to provide when registering a profile ?",
         info:"You need to provide your name, email address, password, and other basic information about your education, work experience, skills, and interests."
     },
 ]

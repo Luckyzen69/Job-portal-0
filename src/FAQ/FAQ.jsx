@@ -41,7 +41,7 @@ export default function FAQ({setProgress}){
     
     
     
-    <div className=" m-2 p-2 grid  grid-cols-1 sm:grid-cols-2 text-start justify-center">
+    <div className=" m-2 p-4 grid  grid-cols-1 font-sans text-start ">
   
     {questions.map((question)=>{
         return <SingleQuestion  key={question.id} {...question} />;
