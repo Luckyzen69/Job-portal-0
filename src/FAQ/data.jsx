@@ -7,11 +7,11 @@ const questions=[
     {
         id:2,
         title:"What kind of jobs should I apply to?",
-        info:"You have to apply to the relevant job that matches your profile and requirements of the company. "
+        info:"You have to apply to the relevant job that matches your profile and requirements of the company."
     },
     {
         id:3,
-        title:"How will I be informed if I am shortlisted for further process??",
+        title:"How will I be informed if I am shortlisted for further process?",
         info:"If you are selected for the applied vacancy, Real Solutions or the concerned company will inform you via email and SMS. "
     },
     {
