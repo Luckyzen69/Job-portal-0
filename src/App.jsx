@@ -16,6 +16,7 @@ import FAQ from "./FAQ/FAQ";
 import Employers from "./FAQ/employer";
 import Jobseekers from "./FAQ/jobseeker";
 import FAQbanner from "./FAQ/FAQbanner";
+import SearchData from "./FAQ/SearchData";
 
 function App() {
   const [progress,setProgress] = useState(0);
@@ -44,6 +45,7 @@ function App() {
     <Route path="/apply" element={<Apply setProgress={setProgress}/>}/>
     <Route path="/error" element={<Errore setProgress={setProgress}/>}/>
     <Route path="/searchlist" element={<SearchList setProgress={setProgress}/>} />
+    <Route path="/searchData" element={<SearchData setProgress={setProgress}/>} />
    </Routes>
     <Footer/>
     </>
