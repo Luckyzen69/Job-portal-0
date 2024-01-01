@@ -6,13 +6,15 @@ import axios from "axios";
 
 export default function Register({ setProgress }) {
 
+    // top loader
      useEffect(() => {
     setProgress(30);
     setTimeout(() => {
       setProgress(100);
     }, 1000);
   }, []);      
-
+              
+  // value 
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("")
@@ -25,11 +27,18 @@ export default function Register({ setProgress }) {
     const [experience, setExperience] = useState("")
     const [company, setCompany] = useState("")
 
-
+               // changing role and it's requirement
     const [selectedRole ,setSelectedRole] = useState("jobseeker")
+   
     function changeDivClass(e){
       setSelectedRole(e.target.value)
+    
     }
+                      
+
+    
+
+   
 
     // handeling the form submit
     async function submit(e) {
@@ -44,7 +53,7 @@ export default function Register({ setProgress }) {
           cpassword,
           phone,
           gender,
-          role,
+          selectedRole,
           experience,
           company
 
@@ -121,11 +130,11 @@ export default function Register({ setProgress }) {
                 </div>
                <div className="p-2 m-2 border rounded">
                 <label type="radio" htmlFor="male" className="m-2" >
-                  <input type="radio" onChange={(e)=>{setGender(e.target.value)}} name="gender" value="male" checked />
+                  <input type="radio" className="m-2" onChange={(e)=>{setGender(e.target.value)}} name="gender" value="male"  />
                 <span>Male</span>
                 </label>
                 <label type="radio "  >
-                  <input type="radio" htmlFor="female" onChange={(e)=>{setGender(e.target.value)}} name="gender"  value="female"  />
+                  <input type="radio" className="m-2" htmlFor="female" onChange={(e)=>{setGender(e.target.value)}} name="gender"  value="female"  />
                 <span>Female</span>
                 </label>
                </div>
@@ -165,9 +174,9 @@ export default function Register({ setProgress }) {
             <div >
               <label htmlFor="Role" className="font-bold">Role</label>
               <div>
-             <select name="role" className="m-2 p-2 border rounded w-full" id="role" onChange={changeDivClass} value={selectedRole} >
-              <option value="jobseeker"  onChange={(e)=>{setRole(e.target.value)}}>JobSeeker</option>
-              <option value="jobrecuiter"onChange={(e)=>{setRole(e.target.value)}}>JobRecuiter</option>
+             <select name="role" className="m-2 p-2 border rounded w-full" id="role" onChange={changeDivClass} value={selectedRole}    >
+              <option value="jobseeker" >JobSeeker</option>
+              <option value="jobrecuiter">JobRecuiter</option>
              </select>
               </div>
             </div>
