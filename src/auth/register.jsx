@@ -22,15 +22,14 @@ export default function Register({ setProgress }) {
     const [phone, setPhone] = useState("")
     const [role, setRole] = useState("")
     const [gender, setGender] = useState("")
-    // const  [user, setUser] = useState({
-    //     username:"",  
-    //     email:"",
-    //     password:"",
-    //     phone:"" ,
-    //     role:"" ,
-    //     gender:""
-    // })
+    const [experience, setExperience] = useState("")
+    const [company, setCompany] = useState("")
 
+
+    const [selectedRole ,setSelectedRole] = useState("jobseeker")
+    function changeDivClass(e){
+      setSelectedRole(e.target.value)
+    }
 
     // handeling the form submit
     async function submit(e) {
@@ -46,6 +45,8 @@ export default function Register({ setProgress }) {
           phone,
           gender,
           role,
+          experience,
+          company
 
        }).then((res)=>{
             if(res.data==="exist"){
@@ -87,7 +88,7 @@ export default function Register({ setProgress }) {
             </div>
                         
                         {/* email  */}
-            <div className="m-2">
+            <div >
               <label htmlFor="email"   className="font-bold">
                 Email
               </label>
@@ -100,30 +101,38 @@ export default function Register({ setProgress }) {
                 className="border rounded m-2 p-2 w-full" />
             </div>
 
-            <div className="m-2">
+            <div >
               <label htmlFor="phone" className="font-bold">
                 Phone
               </label>
               <input
                 type="string"
                 name="phone"
-                id="phone"
+                id="phone"  
                 onChange={(e)=>{setPhone(e.target.value)}}
                 placeholder="Number*"
                 className="border rounded m-2 p-2 w-full"
                 />
             </div>
 
-            <div className="m-2">
-              <label htmlFor="role" className="font-bold">
-                Role
-              </label>
-              <select name="role" id="role" className="border rounded p-2 m-2 w-full row-start-1 col-start-1">
-                <option value="JobSeeker" id="JobSeeker"   onChange={(e)=>{setRole(e.target.value)}} >JobSeeker</option>
-                <option value="JobRecuiter" id="JobRecuiter"   onChange={(e)=>{setRole(e.target.value)}}>JobRecuiter</option>
-              </select>
+            <div className=" accent-lime-950 ">
+                <div>
+                <label htmlFor="gender" className="font-bold ">Gender</label>
+                </div>
+               <div className="p-2 m-2 border rounded">
+                <label type="radio"  className="m-2" >
+                  <input type="radio" onChange={(e)=>{setGender(e.target.value)}} name="gender" value="male" checked />
+                <span>Male</span>
+                </label>
+                <label type="radio "  >
+                  <input type="radio" onChange={(e)=>{setGender(e.target.value)}} name="gender"  value="female"  />
+                <span>Female</span>
+                </label>
+               </div>
+              
+              
             </div>
-            <div className="m-2">
+            <div>
               <label htmlFor="password"  className="font-bold">
                 Password
               </label>
@@ -137,7 +146,7 @@ export default function Register({ setProgress }) {
                 className="border rounded m-2 mb-4 p-2  w-full"
               />
             </div>
-            <div className="m-2">
+            <div >
               <label htmlFor="password"  className="font-bold">
                 Confirm Password
               </label>
@@ -148,31 +157,57 @@ export default function Register({ setProgress }) {
                 id="cpassword"
                 placeholder=" confirm Password*"
                 autoComplete="off"
-                className="border rounded m-2 mb-4 p-2  w-full"
+                className="border rounded m-2  p-2  w-full"
               />
             </div>
+
+
+            <div >
+              <label htmlFor="Role" className="font-bold">Role</label>
+              <div>
+             <select name="role" className="m-2 p-2 border rounded w-full" id="role" onChange={changeDivClass} value={selectedRole} >
+              <option value="jobseeker"  onChange={(e)=>{setRole(e.target.value)}}>JobSeeker</option>
+              <option value="jobrecuiter"onChange={(e)=>{setRole(e.target.value)}}>JobRecuiter</option>
+             </select>
+              </div>
+            </div>
             
-            <div className="form-field">
+
+            <div>
+            {selectedRole === "jobseeker" && (
+        <div className="jobseeker">
+          <label name="experience" className="font-bold">Experience</label>
+          <div>
+            <input type="Experience" className="border w-full m-2 p-2" 
+            onChange={(e)=>{setExperience(e.target.value)}}
+            name="experience" placeholder="Experience*" />
+          </div>
+        </div>
+      )}
+
+      {selectedRole === "jobrecuiter" && (
+        <div className="jobrecuiter">
+          <label name="company" className="font-bold">Company</label>
+          <div>
+            <input type="company" name="company" className="border w-full m-2 p-2" placeholder="Company*" onChange={(e)=>{setCompany  (e.target.value)}} />
+          </div>
+        </div>
+      )}
             </div>
 
-           <div 
-           >
-            <label htmlFor="gender" className="font-bold">Gender</label>
-            <select name="gender" id="gender" className="border rounded m-2 p-2 w-full ">
-                <option value="male"   onChange={(e)=>{setGender(e.target.value)}}>Male</option>
-                <option value="female"   onChange={(e)=>{setGender(e.target.value)}}>Female</option>
-            </select>
-           </div>
+            <div className="form-field">
             <button type="submit" onClick={submit}
-              className="border rounded hover:ring-2 bg-primary text-center text-white p-2 text-xl m-2 ">
+              className="border rounded hover:ring-2 w-full bg-primary text-center text-white p-2 text-xl m-2 ">
               Create Account
             </button>
-            <div>
+
+                </div>
+              <div > 
+            <p className=" font-sans">Already have an account?</p>
+            <Link to="/login"  className="font-bold underline font-sans ">Login</Link>
+              </div>
               
-           <p className=" font-sans">Already have an account?</p>
-           <Link to="/login"  className="font-bold underline font-sans">Login</Link>
-            </div>
-          </form>
+          </form >
         </div>
       </div>
     </>
