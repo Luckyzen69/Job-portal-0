@@ -56,8 +56,8 @@ export default function Register({ setProgress }) {
               localStorage.setItem('token',res.data.token)
               navigate("/home",{state:{id:email}})
             }
-        })
-        console.log(res);
+            console.log(res);
+        });
       } catch(error){
         console.log("register",error);
       }
@@ -120,12 +120,12 @@ export default function Register({ setProgress }) {
                 <label htmlFor="gender" className="font-bold ">Gender</label>
                 </div>
                <div className="p-2 m-2 border rounded">
-                <label type="radio"  className="m-2" >
+                <label type="radio" htmlFor="male" className="m-2" >
                   <input type="radio" onChange={(e)=>{setGender(e.target.value)}} name="gender" value="male" checked />
                 <span>Male</span>
                 </label>
                 <label type="radio "  >
-                  <input type="radio" onChange={(e)=>{setGender(e.target.value)}} name="gender"  value="female"  />
+                  <input type="radio" htmlFor="female" onChange={(e)=>{setGender(e.target.value)}} name="gender"  value="female"  />
                 <span>Female</span>
                 </label>
                </div>
@@ -152,7 +152,7 @@ export default function Register({ setProgress }) {
               </label>
               <input
                 type="password"
-                name="cpassword"
+                name="cpassword"  
                 onChange={(e)=>{setCpassword(e.target.value)}}
                 id="cpassword"
                 placeholder=" confirm Password*"
