@@ -22,10 +22,9 @@ export default function Register({ setProgress }) {
     const [password, setPassword] = useState("")
     const [cpassword, setCpassword] = useState("")
     const [phone, setPhone] = useState("")
-    const [role, setRole] = useState("")
     const [gender, setGender] = useState("")
     const [experience, setExperience] = useState("")
-    const [company, setCompany] = useState("")
+    const [company, setCompany] =  useState("")
 
                // changing role and it's requirement
     const [selectedRole ,setSelectedRole] = useState("jobseeker")
@@ -58,12 +57,13 @@ export default function Register({ setProgress }) {
           company
 
        }).then((res)=>{
-            if(res.data==="exist"){
+        const token = res.data.token
+            if(res.data ==="exist"){
               alert('User  already  exists')
-            }else if(res.data==="notexist"){
+            }else if(res.data === "notexist"){
               alert('success')
-              localStorage.setItem('token',res.data.token)
-              navigate("/home",{state:{id:email}})
+              localStorage.setItem('token',token)
+              navigate("/home")
             }
             console.log(res);
         });
