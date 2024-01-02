@@ -20,9 +20,12 @@ import SearchData from "./FAQ/SearchData";
 
 function App() {
   const [progress,setProgress] = useState(0);
+
+
+  
   return (
     <>
-   <Header/>
+   <Header />
  
     <LoadingBar
         color='#f11946'
