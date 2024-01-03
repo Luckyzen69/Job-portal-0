@@ -63,7 +63,7 @@ export default function Register({ setProgress }) {
             }else if(res.data === "notexist"){
               alert('success')
               localStorage.setItem('token',token)
-              navigate("/home")
+              navigate("/login")
             }
             console.log(res);
         });

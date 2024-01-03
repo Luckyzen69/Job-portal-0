@@ -23,7 +23,7 @@ export default function Header() {
         <p>{user && user.email }</p>
         </div>
         <div className=" flex flex-wrap gap-px text-xl">
-          {localStorage.getItem('user-info') }
+    
          
           <>
 <Link to="/login"  className="mt-3 sm:mr-4 ml-3 hover:text-pink"> Login</Link>
