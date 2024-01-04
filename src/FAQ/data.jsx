@@ -39,5 +39,10 @@ const questions=[
         title:" What information do I need to provide when registering a profile ?",
         info:"You need to provide your name, email address, password, and other basic information about your education, work experience, skills, and interests."
     },
+    {
+        id:8,
+        title:" How can see my profile ?",
+        info:"Only you can see you profile."
+    },
 ]
 export default questions;
