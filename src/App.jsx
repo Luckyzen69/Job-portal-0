@@ -2,7 +2,7 @@ import Header from "./components/header"
 import Register from "./auth/register";
 import Home from "./components/home"
 import ViewDetails from "./jobHandle/viewdetails";
-import {Router,Routes,Route,Switch} from 'react-router-dom'
+import {Router,Routes,Route} from 'react-router-dom'
 import Footer from "./components/footer";
 import Login from "./auth/Login";
 import PostaJob from "./jobHandle/postajob";
@@ -35,14 +35,15 @@ function App() {
         onLoaderFinished={() => setProgress(0)}
       />
           
-        <AuthProvider>
+        {/* <AuthProvider> */}
    <Routes>
-    <Switch>
+    {/* <Switch> */}
     <Route  path="/" element={<Home setProgress={setProgress}/>} />
     <Route  path="/home" element={<Home setProgress={setProgress}/>} />
     <Route path="/login" element={<Login setProgress={setProgress}/>} />
     <Route path="/register" element={ <Register setProgress={setProgress}/>}/>
     <Route path="userprofile" element={<UserProfilePage/>}  />
+
 
     <Route path="/charts" element={<Charts setProgress={setProgress}/>} />
     <Route path="/FAQ" element={<FAQ setProgress={setProgress}/>} />
@@ -55,9 +56,10 @@ function App() {
     <Route path="/error" element={<Errore setProgress={setProgress}/>}/>
     <Route path="/searchlist" element={<SearchList setProgress={setProgress}/>} />
     <Route path="/searchData" element={<SearchData setProgress={setProgress}/>} />
-    </Switch>
    </Routes>
-        </AuthProvider>
+        {/* </AuthProvider> */}
+    {/* </Switch> */}
+
     <Footer/>
     </>
   ) 

@@ -40,7 +40,7 @@ export default function Login({setProgress}){
                     console.error('Token not found in localStorage');
                     return res.status(401).send("invaid credentials")}
                 // localStorage.setItem('token',res.data.token)
-                navigate('/home',{state:{id:email}})
+                navigate('/userprofile')
                 const user = req.body.username
 
                 login(user);
