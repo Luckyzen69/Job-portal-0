@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "./authProvider";   
+
 export default function Login({setProgress}){
     useEffect(()=>{
         setProgress(30);
@@ -16,6 +18,8 @@ export default function Login({setProgress}){
 
     
     async function submit(e){
+        const { login } = useAuth();
+
         e.preventDefault()
         try{
             
@@ -37,6 +41,9 @@ export default function Login({setProgress}){
                     return res.status(401).send("invaid credentials")}
                 // localStorage.setItem('token',res.data.token)
                 navigate('/home',{state:{id:email}})
+                const user = req.body.username
+
+                login(user);
             })
             .catch(e=>{
                 alert("wrong email or password")
