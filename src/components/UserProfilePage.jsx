@@ -10,6 +10,8 @@ export default function UserProfilePage(){
         <div>
           <p>User ID: </p>
           <p className='border rounded'>Username: {user.username}</p>
+          <p>company</p>
+          <p>Gender</p>
           {/* Display other user information */}
         </div>
       )}
