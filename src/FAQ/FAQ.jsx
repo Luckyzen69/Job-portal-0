@@ -1,7 +1,7 @@
 import { RiUserSearchLine } from "react-icons/ri";
 import { HiBuildingOffice2 } from "react-icons/hi2";
 import { Link } from "react-router-dom";
-import FAQbanner from "./FAQbanner";
+import FAQbanner from "../handleError/FAQbanner";
 import { useEffect } from "react";
 import { useState } from "react";
 import data from "./data"

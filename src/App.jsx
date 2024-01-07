@@ -15,7 +15,7 @@ import Charts from "./components/charts";
 import FAQ from "./FAQ/FAQ";
 import Employers from "./FAQ/employer";
 import Jobseekers from "./FAQ/jobseeker";
-import FAQbanner from "./FAQ/FAQbanner";
+import FAQbanner from "./handleError/FAQbanner";
 import SearchData from "./FAQ/SearchData";
 import { AuthProvider } from "./auth/authProvider";
 import UserProfilePage from "./components/UserProfilePage";

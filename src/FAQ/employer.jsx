@@ -1,4 +1,4 @@
-import FAQbanner from "./FAQbanner"
+import FAQbanner from "../handleError/FAQbanner"
 import { Link } from "react-router-dom"
 import SingleQuestion from "./SingleQuestion"
 import EmployerData from "./EmployerData"

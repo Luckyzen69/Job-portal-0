@@ -9,7 +9,7 @@ export default function UserProfilePage(){
       {user && (
         <div>
           <p>User ID: </p>
-          <p>Username: {user.username}</p>
+          <p className='border rounded'>Username: {user.username}</p>
           {/* Display other user information */}
         </div>
       )}
