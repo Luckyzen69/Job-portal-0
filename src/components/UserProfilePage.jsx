@@ -9,9 +9,12 @@ export default function UserProfilePage(){
       {user && (
         <div>
           <p>User ID: </p>
+          <input type="image" />
+          
           <p className='border rounded'>Username: {user.username}</p>
           <p>company</p>
           <p>Gender</p>
+          <p>Role</p>
           {/* Display other user information */}
         </div>
       )}
