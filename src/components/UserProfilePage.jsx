@@ -12,9 +12,9 @@ export default function UserProfilePage(){
           <input type="image" />
           
           <p className='border rounded'>Username: {user.username}</p>
-          <p>company</p>
-          <p>Gender</p>
-          <p>Role</p>
+          <p>company {user.company}</p>
+          <p>Gender{user.gender}</p>
+          <p>Role{user.role}</p>
           {/* Display other user information */}
         </div>
       )}
