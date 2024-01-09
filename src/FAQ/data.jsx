@@ -44,5 +44,15 @@ const questions=[
         title:" How can see my profile ?",
         info:"Only you can see you profile."
     },
+    {
+        id:9,
+        title:" How can see my profile ?",
+        info:"Only you can see you profile."
+    },
+    {
+        id:10,
+        title:" How can see my profile ?",
+        info:"Only you can see you profile."
+    },
 ]
 export default questions;
