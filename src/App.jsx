@@ -1,8 +1,15 @@
-import Header from "./components/header"
+import Header from "./components/header";
 import Register from "./auth/register";
-import Home from "./components/home"
+import Home from "./components/home";
 import ViewDetails from "./jobHandle/viewdetails";
-import {Router,Routes,Route} from 'react-router-dom'
+// import {Router,Routes,Route} from 'react-router-dom'
+import {
+  Routes,
+  Route,
+  BrowserRouter as Router,
+  Switch,
+} from "react-router-dom";
+
 import Footer from "./components/footer";
 import Login from "./auth/Login";
 import PostaJob from "./jobHandle/postajob";
@@ -21,48 +28,84 @@ import { AuthProvider } from "./auth/authProvider";
 import UserProfilePage from "./components/UserProfilePage";
 
 function App() {
-  const [progress,setProgress] = useState(0);
+  const [progress, setProgress] = useState(0);
 
-
-  
   return (
     <>
-   <Header />
- 
-    <LoadingBar
-        color='#f11946'
+      <Header />
+
+      <LoadingBar
+        color="#f11946"
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-          
-        {/* <AuthProvider> */}
-   <Routes>
-    {/* <Switch> */}
-    <Route  path="/" element={<Home setProgress={setProgress}/>} />
-    <Route  path="/home" element={<Home setProgress={setProgress}/>} />
-    <Route path="/login" element={<Login setProgress={setProgress}/>} />
-    <Route path="/register" element={ <Register setProgress={setProgress}/>}/>
-    <Route path="userprofile" element={<UserProfilePage/>}  />
+      <Router>
+        <AuthProvider>
+          <Routes>
+            <Switch>
+              <Route path="/" element={<Home setProgress={setProgress} />} />
+              <Route
+                path="/home"
+                element={<Home setProgress={setProgress} />}
+              />
+              <Route
+                path="/login"
+                element={<Login setProgress={setProgress} />}
+              />
+              <Route
+                path="/register"
+                element={<Register setProgress={setProgress} />}
+              />
+              <Route path="/userprofile" element={<UserProfilePage />} />
 
+              <Route
+                path="/charts"
+                element={<Charts setProgress={setProgress} />}
+              />
+              <Route path="/FAQ" element={<FAQ setProgress={setProgress} />} />
+              <Route
+                path="/FAQ"
+                element={<FAQbanner setProgress={setProgress} />}
+              />
+              <Route
+                path="/employers"
+                element={<Employers setProgress={setProgress} />}
+              />
+              <Route
+                path="/jobseekers"
+                element={<Jobseekers setProgress={setProgress} />}
+              />
+              <Route
+                path="/PostaJob"
+                element={<PostaJob setProgress={setProgress} />}
+              />
+              <Route
+                path="/details"
+                element={<ViewDetails setProgress={setProgress} />}
+              />
+              <Route
+                path="/apply"
+                element={<Apply setProgress={setProgress} />}
+              />
+              <Route
+                path="/error"
+                element={<Errore setProgress={setProgress} />}
+              />
+              <Route
+                path="/searchlist"
+                element={<SearchList setProgress={setProgress} />}
+              />
+              <Route
+                path="/searchData"
+                element={<SearchData setProgress={setProgress} />}
+              />
+            </Switch>
+          </Routes>
+        </AuthProvider>
+      </Router>
 
-    <Route path="/charts" element={<Charts setProgress={setProgress}/>} />
-    <Route path="/FAQ" element={<FAQ setProgress={setProgress}/>} />
-    <Route path="/FAQ" element={<FAQbanner setProgress={setProgress}/>} />
-    <Route path="/employers" element={<Employers setProgress={setProgress}/>} />
-    <Route path="/jobseekers" element={<Jobseekers setProgress={setProgress}/>} />
-    <Route path="/PostaJob" element={<PostaJob setProgress={setProgress}/>}/>
-    <Route path="/details" element={<ViewDetails setProgress={setProgress}/>}/>
-    <Route path="/apply" element={<Apply setProgress={setProgress}/>}/>
-    <Route path="/error" element={<Errore setProgress={setProgress}/>}/>
-    <Route path="/searchlist" element={<SearchList setProgress={setProgress}/>} />
-    <Route path="/searchData" element={<SearchData setProgress={setProgress}/>} />
-   </Routes>
-        {/* </AuthProvider> */}
-    {/* </Switch> */}
-
-    <Footer/>
+      <Footer />
     </>
-  ) 
+  );
 }
-export default App
- 
+export default App;
