@@ -39,7 +39,7 @@ export default function Login({setProgress}){
                     // Handle the case where the token is not available
                     console.error('Token not found in localStorage');
                     return res.status(401).send("invaid credentials")}
-                // localStorage.setItem('token',res.data.token)
+                // localStorage.setItem('token',res.data.token) 
                 navigate('/userprofile')
                 const user = req.body.username
 

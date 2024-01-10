@@ -38,10 +38,12 @@ function App() {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-      <Router>
+    
         <AuthProvider>
+          
+              </AuthProvider>
           <Routes>
-            <Switch>
+           
               <Route path="/" element={<Home setProgress={setProgress} />} />
               <Route
                 path="/home"
@@ -98,10 +100,9 @@ function App() {
                 path="/searchData"
                 element={<SearchData setProgress={setProgress} />}
               />
-            </Switch>
+  
           </Routes>
-        </AuthProvider>
-      </Router>
+      
 
       <Footer />
     </>
