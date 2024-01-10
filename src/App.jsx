@@ -2,7 +2,6 @@ import Header from "./components/header";
 import Register from "./auth/register";
 import Home from "./components/home";
 import ViewDetails from "./jobHandle/viewdetails";
-// import {Router,Routes,Route} from 'react-router-dom'
 import {
   Routes,
   Route,
