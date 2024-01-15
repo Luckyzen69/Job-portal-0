@@ -25,6 +25,7 @@ export default function Employers(){
           
             <div className="grid grid-cols-1 text-start">
                 {EmployerQuestions.map((EmployerQuestion) => {
+                    console.log(EmployerQuestions);
                     return <SingleQuestion key={EmployerQuestion.id} {...EmployerQuestion}  />
                 })}
             </div>
