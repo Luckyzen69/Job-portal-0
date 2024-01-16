@@ -1,14 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+  
+function getUser(){
+  let user =  localStorage.getItem('user');
+  if(user){
+      user = JSON.parse(user)
+  }
+  else{
+      user = null;
+  }
+  return user;
+}
+
 
 export default function Header() {
-  const location = useLocation
-  let user = JSON.parse(localStorage.getItem('user-info'))
+  const [user, setUser] = useState(getUser())
+ 
 
     return (<>
     <header>
+      {user?(
+        <>
+        <h4>
+          
+        {user.username}
+        {user.email}
+        </h4>
+        </>
+      ):(
+        <> 
+        <Link to="/login"  className="mt-3 sm:mr-4 ml-3 hover:text-pink"> Login</Link>
+        <Link to="/register" className="border border-1 rounded-md p-2 ml-1 bg-primary text-white hover:bg-pink  ">Register</Link>
+        </>
+
+      )}
 
       {/* Creating top banner  */}
       <div className="flex justify-between m-2 p-2 text-primary ">
@@ -26,8 +53,6 @@ export default function Header() {
     
           <>
           <Link to="/charts" className="mt-3 ml-10 sm:mr-2 hover:text-pink ">Charts</Link>
-          <Link to="/login"  className="mt-3 sm:mr-4 ml-3 hover:text-pink"> Login</Link>
-          <Link to="/register" className="border border-1 rounded-md p-2 ml-1 bg-primary text-white hover:bg-pink  ">Register</Link>
           </>
           
         </div>

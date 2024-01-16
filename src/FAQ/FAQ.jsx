@@ -7,6 +7,7 @@ import { useState } from "react";
 import data from "./data"
 import SingleQuestion from "./SingleQuestion";
 
+  
 export default function FAQ({setProgress}){
     useEffect(()=>{
         setProgress(30);
@@ -14,7 +15,8 @@ export default function FAQ({setProgress}){
             setProgress(100)
         },1000);
     },[]);
-    
+
+   
     const [questions,setQuestions]= useState(data)
     return<>
     <FAQbanner/>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "./authProvider";   
+import { useAuth } from "./authProvider";
 
 export default function Login({setProgress}){
     useEffect(()=>{
@@ -40,7 +40,7 @@ export default function Login({setProgress}){
                     console.error('Token not found in localStorage');
                     return res.status(401).send("invaid credentials")}
                 // localStorage.setItem('token',res.data.token) 
-                navigate('/userprofile')
+                navigate('/')
                 const user = req.body.username
 
                 login(user);
