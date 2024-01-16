@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "./authProvider";
+import { loginUser } from "./userSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Login({setProgress}){
     useEffect(()=>{
@@ -12,43 +14,51 @@ export default function Login({setProgress}){
         },1000);
     },[]);
 
+
+    const {loading, error} = useSelector((state)=>state.user)
+
     const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const dispatch = useDispatch();
 
     
     async function submit(e){
-        const { login } = useAuth();
+        // const { login } = useAuth();
 
         e.preventDefault()
-        try{
+        try{ 
+            let userCredentials = {
+                email, password
+            }
+            dispatch(loginUser(userCredentials))
             
-         await axios.post('http://localhost:8000/api/login/',{
-                email,
-                password        
-            })
-            .then(res=>{
-                console.log(res.data);
-                alert('success')  ;
+        //  await axios.post('http://localhost:8000/api/login/',{
+        //         email,
+        //         password        
+        //     })
+        //     .then(res=>{
+        //         console.log(res.data);
+        //         alert('success')  ;
 
-                const token = res.data.token
-                if (token) {
-                    // Include the token in your request headers or wherever it's needed
-                    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-                  } else {
-                    // Handle the case where the token is not available
-                    console.error('Token not found in localStorage');
-                    return res.status(401).send("invaid credentials")}
-                // localStorage.setItem('token',res.data.token) 
-                navigate('/')
-                const user = req.body.username
+        //         const token = res.data.token
+        //         if (token) {
+        //             // Include the token in your request headers or wherever it's needed
+        //             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        //           } else {
+        //             // Handle the case where the token is not available
+        //             console.error('Token not found in localStorage');
+        //             return res.status(401).send("invaid credentials")}
+        //         // localStorage.setItem('token',res.data.token) 
+        //         navigate('/')
+        //         const user = req.body.username
 
-                login(user);
-            })
-            .catch(e=>{
-                alert("wrong email or password")
-                console.log(e);
-            })
+        //         login(user);
+        //     })
+            // .catch(e=>{
+            //     alert("wrong email or password")
+            //     console.log(e);
+            // })
         }catch(e){
             console.log(e);
         }
@@ -66,7 +76,12 @@ export default function Login({setProgress}){
             <input type="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder="email*" className="border flex m-2 p-2 lg:w-96 " />
             <label htmlFor="password" className="font-bold flex" >Password</label>
             <input type="password" autoComplete="off" name="password" id="password" placeholder="Password*"  onChange={(e)=>{setPassword(e.target.value)}}  className="border flex m-2 mb-4 p-2 " />
-            <button type="submit"  onClick={submit} className="border flex hover:ring-2 bg-primary justify-center text-white text-center p-2 text-xl">Login</button>
+            <button type="submit"  onClick={submit} className="border flex hover:ring-2 bg-primary justify-center text-white text-center p-2 text-xl">
+                {loading? 'Loading..':'Login'}
+            </button>
+            {error&&(
+                <div className="alert alert-danger" role="alert">{error}</div>
+            )}
 
             <div className="flex m-4">
 
