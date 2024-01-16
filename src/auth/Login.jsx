@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "./authProvider";
-import { loginUser } from "./userSlice";
+import { loginUser } from "../store/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Login({setProgress}){
