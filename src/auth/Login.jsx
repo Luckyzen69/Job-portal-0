@@ -31,7 +31,13 @@ export default function Login({setProgress}){
             let userCredentials = {
                 email, password
             }
-            dispatch(loginUser(userCredentials))
+            dispatch(loginUser(userCredentials)).then((result)=>{
+                if(result.payload){
+                    setEmail('');
+                    setPassword('');
+                    navigate('/')
+                }
+            })
             
         //  await axios.post('http://localhost:8000/api/login/',{
         //         email,
