@@ -23,7 +23,7 @@ import axios from "axios";
                             
                             // login(user);
                             localStorage.setItem('token',res.data.token) 
-                            console.log(res.data.token);
+                            console.log(res.data.tokenS);
                         })
                         // const response = await request.data.data;
             // return res.data.token;
@@ -64,6 +64,4 @@ import axios from "axios";
             })
         }
     })
-
-
     export default  userSlice.reducer;
