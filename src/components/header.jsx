@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-  
+      //getting user inf
 function getUser(){
   let user =  localStorage.getItem('user');
   if(user){
