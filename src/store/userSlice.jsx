@@ -7,7 +7,7 @@ export const userSlice = createSlice({
   },
   reducers: {
    setUser: (state)  =>{
-    state.value = {name:"ram",location:"putalisadak"}
+    state.value = {name:"ram",location:"putalisadak",gender:"male"}
    },
   },
 })
