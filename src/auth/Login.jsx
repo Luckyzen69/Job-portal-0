@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "./authProvider";
-import { loginUser } from "../store/userSlice";
+import { setUser } from "../store/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Login({setProgress}){
@@ -24,47 +24,20 @@ export default function Login({setProgress}){
 
     
     async function submit(e){
-        // const { login } = useAuth();
 
         e.preventDefault()
         try{ 
             let userCredentials = {
                 email, password
             }
-            dispatch(loginUser(userCredentials)).then((result)=>{
+            dispatch(setUser(userCredentials)).then((result)=>{
                 if(result.payload){
                     setEmail('');
                     setPassword('');
                     navigate('/')
                 }
             })
-            
-        //  await axios.post('http://localhost:8000/api/login/',{
-        //         email,
-        //         password        
-        //     })
-        //     .then(res=>{
-        //         console.log(res.data);
-        //         alert('success')  ;
-
-        //         const token = res.data.token
-        //         if (token) {
-        //             // Include the token in your request headers or wherever it's needed
-        //             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-        //           } else {
-        //             // Handle the case where the token is not available
-        //             console.error('Token not found in localStorage');
-        //             return res.status(401).send("invaid credentials")}
-        //         // localStorage.setItem('token',res.data.token) 
-        //         navigate('/')
-        //         const user = req.body.username
-
-        //         login(user);
-        //     })
-            // .catch(e=>{
-            //     alert("wrong email or password")
-            //     console.log(e);
-            // })
+    
         }catch(e){
             console.log(e);
         }
