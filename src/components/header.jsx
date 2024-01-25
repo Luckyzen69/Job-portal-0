@@ -24,7 +24,7 @@ export default function Header() {
       {user?(
         <>
         <h4>
-          
+          {user.gender}
         {user.username}
         {user.email}
         </h4>
