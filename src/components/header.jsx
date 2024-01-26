@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -16,7 +17,7 @@ function getUser(){
 
 
 export default function Header() {
-  const [user, setUser] = useState(getUser())
+  const user = useSelector((store)=>store.user.value)
  
 
     return (<>
@@ -45,7 +46,7 @@ export default function Header() {
         <div>
         <Link to="/home" className=" font-mono font-bold text-3xl has-tooltip hover:text-pink  ">JobsPortal <span className="tooltip rounded shadow-lg p-1 font-normal mt-8 text-sm text-yellow">go to home</span></Link>
         <Link to="/FAQ" className=" hover:text-pink" >FAQ</Link> 
-  
+        {JSON.stringify(user)}
         <p>{user && user.name }</p>
         <p>{user && user.email }</p>
         </div>
