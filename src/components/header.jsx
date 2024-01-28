@@ -47,8 +47,8 @@ export default function Header() {
         <Link to="/home" className=" font-mono font-bold text-3xl has-tooltip hover:text-pink  ">JobsPortal <span className="tooltip rounded shadow-lg p-1 font-normal mt-8 text-sm text-yellow">go to home</span></Link>
         <Link to="/FAQ" className=" hover:text-pink" >FAQ</Link> 
         {JSON.stringify(user)}
-        <p>{user && user.name }</p>
-        <p>{user && user.email }</p>
+        {/* <p>{user && user.name }</p>
+        <p>{user && user.email }</p> */}
         </div>
         <div className=" flex flex-wrap gap-px text-xl">
     
