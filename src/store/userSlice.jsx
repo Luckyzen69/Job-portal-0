@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import axios from 'axios';
 
 export const userSlice = createSlice({
   name: 'user',
@@ -35,6 +36,6 @@ export const fetchUserData = () => async (dispatch) => {
 };
 
 // Action creators are generated for each case reducer function
-export const { setUser,setLoading,setError } = userSlice.actions
+export const { setUser,setLoading,setError } = userSlice.actions; 
 
-export default userSlice.reducer
+export default  userSlice.reducer;
