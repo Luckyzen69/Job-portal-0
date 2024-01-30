@@ -16,13 +16,13 @@ export default function Login({setProgress}){
     },[]);
 
 
-    const {loading, error} = useSelector((state)=>state.user)
-
+    
     const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const dispatch = useDispatch();
-
+    const {loading, error} = useSelector((state)=>state.user)
+    
     
     async function submit(e){
 

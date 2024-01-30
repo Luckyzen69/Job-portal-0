@@ -16,8 +16,8 @@ function getUser(){
 }
 
 
-export default function Header() {
-  const user = useSelector((store)=>store.user.value)
+export default function Header({user,setUser}) {
+  // const user = useSelector((store)=>store.user.value)
  
 
     return (<>

@@ -28,10 +28,11 @@ import UserProfilePage from "./components/UserProfilePage";
 
 function App() {
   const [progress, setProgress] = useState(0);
+  const [user,setUser] = useState(null)
 
   return (
     <>
-      <Header />
+      <Header  user={user}  setUser={setUser}/>
 
       <LoadingBar
         color="#f11946"
@@ -51,7 +52,7 @@ function App() {
               />
               <Route
                 path="/login"
-                element={<Login setProgress={setProgress} />}
+                element={<Login setProgress={setProgress} setUser={setUser} />}
               />
               <Route
                 path="/register"
