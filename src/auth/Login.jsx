@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "./authProvider";
-import { setUser } from "../store/userSlice";
+import { fetchUserData } from "../store/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
@@ -28,18 +28,19 @@ export default function Login({setProgress}){
 
         e.preventDefault()
             axios.post(`http://localhost:8000/api/login/`,
-            {email:e.target.email.value,
-            password:e.taget.password.value
+            { 
+                email:email,
+                password:password
             }).then(res=>{
                 //when status code is in 2's line
                 toast("Login sucessfull")
                 console.log(res.data.user);
                 navigate("/")
-                dispatch(setUser())
+                dispatch(fetchUserData());
             })
             .catch((err)=> {
             console.log(err);
-            if(error.response?.status === 401){
+            if(err.response?.status === 401){
                 return toast.error("Invalid Credentials")
             }
             toast.error("505 back end error ")  
@@ -56,9 +57,9 @@ export default function Login({setProgress}){
         <div className=" justify-center items-center flex m-8 p-4  ">
         <form className="grid m-2 justify-center border rounded p-6 font-sans" action="POST">
             <label htmlFor="login" className="font-bold flex ">Email</label>
-            <input type="email" value={"test91@gmail.com"} placeholder="email*" className="border flex m-2 p-2 lg:w-96 " />
+            <input type="email"  placeholder="email*" onChange={(e)=>{setEmail(e.target.value)}} className="border flex m-2 p-2 lg:w-96 " />
             <label htmlFor="password" className="font-bold flex"  >Password</label>
-            <input type="password" autoComplete="off" name="password" id="password" placeholder="Password*"  value={"qwerty"}  className="border flex m-2 mb-4 p-2 " />
+            <input type="password" autoComplete="off" name="password" id="password" placeholder="Password*"  onChange={(e)=>{setPassword(e.target.value)}} className="border flex m-2 mb-4 p-2 " />
             <button type="submit"  onClick={submit} className="border flex hover:ring-2 bg-primary justify-center text-white text-center p-2 text-xl">
                 {loading? 'Loading..':'Login'}
             </button>
