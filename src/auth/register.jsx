@@ -183,6 +183,7 @@ export default function Register({ setProgress }) {
             
 
             <div>
+              {/* chaning exp with role  */}
             {selectedRole === "jobseeker" && (
         <div className="jobseeker">
           <label name="experience" className="font-bold">Experience</label>
