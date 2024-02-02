@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react" 
 import { useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -15,30 +15,26 @@ export default function Login({setProgress}){
         },1000);
     },[]);
 
-
-    
     const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const dispatch = useDispatch();
     const {loading, error} = useSelector((state)=>state.user)
-    
-    
-    async function submit(e){
 
+    async function submit(e){
         e.preventDefault()
-            axios.post(`http://localhost:8000/api/login/`,
-            { 
-                email:email,
-                password:password
-            }).then(res=>{
-                //when status code is in 2's line
-                toast("Login sucessfull")
-                console.log(res.data.user);
-                navigate("/")
-                dispatch(fetchUserData());
-            })
-            .catch((err)=> {
+        axios.post(`http://localhost:8000/api/login/`,
+        { 
+            email:email,
+            password:password
+        }).then(res=>{
+            //when status code is in 2's line
+            toast("Login sucessfull")
+            console.log(res.data.user);
+            navigate("/")
+            dispatch(fetchUserData());
+        })
+        .catch((err)=> {
             console.log(err);
             if(err.response?.status === 401){
                 return toast.error("Invalid Credentials")
@@ -46,9 +42,9 @@ export default function Login({setProgress}){
             toast.error("505 back end error ")  
             //when code status is 3,4,5
         })
-        }
+    }
     return<>
-    
+
                                     {/* login  */}
     <div >
 
@@ -77,4 +73,4 @@ export default function Login({setProgress}){
         </div>
     </div>
     </>
-}   
+}

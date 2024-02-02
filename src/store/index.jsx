@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./userSlice"
+import userReducer,{ fetchUserData } from "./userSlice"
 import { thunk } from "redux-thunk";
 
 
@@ -9,4 +9,7 @@ import { thunk } from "redux-thunk";
         },
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
      })
+     store.dispatch(fetchUserData());
+
      export default store;
+     ;

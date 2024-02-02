@@ -28,7 +28,7 @@ export const userSlice = createSlice({
 export const fetchUserData = () => async (dispatch) => {
   try {
     dispatch(setLoading());
-    const response = await axios.get('http://localhost:8000/api/login/');
+    const response = await axios.get('http://localhost:8000/api/user');
     dispatch(setUser(response.data));
   } catch (error) {
     dispatch(setError(error.message));
