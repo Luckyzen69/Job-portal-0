@@ -10,6 +10,5 @@ import { thunk } from "redux-thunk";
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
      })
      store.dispatch(fetchUserData());
-
      export default store;
      ;

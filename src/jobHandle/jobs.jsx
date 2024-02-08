@@ -44,6 +44,13 @@ let jobs = [
       "time":"full time",
       "salary":"Rs85000"
     },
+    { 
+      "company":"Mindrisers ",
+      "work":"Full Stack Developer (3 Year Exp.)",
+      "location":"putalisadak",
+      "time":"full time",
+      "salary":"Rs85000"
+    },
   ]
   
 
