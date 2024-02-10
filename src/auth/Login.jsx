@@ -32,7 +32,8 @@ export default function Login({setProgress}){
             toast("Login sucessfull")
             console.log(res.data.user);
             navigate("/")
-            dispatch(fetchUserData());
+            dispatch(fetchUserData(user,storedToken));
+            store.dispatch({ type: 'LOGIN_SUCCESS', payload: { token } });
         })
         .catch((err)=> {
             console.log(err);
