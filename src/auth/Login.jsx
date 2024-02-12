@@ -6,6 +6,7 @@ import { useAuth } from "./authProvider";
 import { fetchUserData } from "../store/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { setLoading, setUser, setError } from '../store/userSlice';
 
 export default function Login({setProgress}){
     useEffect(()=>{
@@ -20,27 +21,33 @@ export default function Login({setProgress}){
     const [password, setPassword] = useState("")
     const dispatch = useDispatch();
     const {loading, error} = useSelector((state)=>state.user)
-
+    
+    dispatch(setLoading(true));
     async function submit(e){
+        // axios.defaults.withCredentials =true;
         e.preventDefault()
+
         axios.post(`http://localhost:8000/api/login/`,
         { 
             email:email,
-            password:password
+            password:password,
         }).then(res=>{
             //when status code is in 2's line
+            dispatch(setLoading(false));
             toast("Login sucessfull")
-            console.log(res.data.user);
+            console.log(res.data.user);     
             navigate("/")
             dispatch(fetchUserData(user,storedToken));
             store.dispatch({ type: 'LOGIN_SUCCESS', payload: { token } });
-        })
-        .catch((err)=> {
+
+        }).catch((err)=> {
             console.log(err);
             if(err.response?.status === 401){
                 return toast.error("Invalid Credentials")
             }
-            toast.error("505 back end error ")  
+            toast.error("505 back end error ") 
+            dispatch(setLoading(false));
+ 
             //when code status is 3,4,5
         })
     }
