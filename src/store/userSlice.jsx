@@ -24,14 +24,20 @@ export const userSlice = createSlice({
   },
 });
 
-//  fetching user data
-export const fetchUserData = (user, token) => async (dispatch) => {
-  try {
-    dispatch(setLoading());
 
-    const response = await axios.get(`http://localhost:8000/api/user/${user}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+
+//  fetching user data
+export const fetchUserData = (user, token) => async (dispatch,credentials) => {
+  try {
+    const storedToken = localStorage.getItem('token'); // Correct variable name
+
+    dispatch(setLoading());
+    
+    
+    const response = await axios.get(`http://localhost:8000/api/login/`, credentials);
+
+    console.log('user:', user);
+    console.log('token:', token);
 
     dispatch(setUser(response.data));
   } catch (error) {

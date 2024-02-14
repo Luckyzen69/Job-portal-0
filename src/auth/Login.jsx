@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "./authProvider";
-import { fetchUserData } from "../store/userSlice";
+// import { fetchUserData } from "../store/";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { setLoading, setUser, setError } from '../store/userSlice';
@@ -21,35 +21,57 @@ export default function Login({setProgress}){
     const [password, setPassword] = useState("")
     const dispatch = useDispatch();
     const {loading, error} = useSelector((state)=>state.user)
+
     
-    dispatch(setLoading(true));
+      async (credentials) => {
+    const dispatch = useDispatch();
+    try {
+      // dispatch(setLoading());
+      const { token, user } = response.data;
+      localStorage.setItem('token', token);
+  
+      
+      
+      const response = await axios.get(`http://localhost:8000/api/login/`, credentials);
+      
+      console.log('user:', user);
+      console.log('token:', token);
+      dispatch(setUser(user));
+    } catch (error) {
+      dispatch(setError(error.message));
+    }
+  };  
+  
+    
+    // dispatch(setLoading(true));
     async function submit(e){
         // axios.defaults.withCredentials =true;
         e.preventDefault()
 
-        axios.post(`http://localhost:8000/api/login/`,
-        { 
-            email:email,
-            password:password,
-        }).then(res=>{
-            //when status code is in 2's line
-            dispatch(setLoading(false));
-            toast("Login sucessfull")
-            console.log(res.data.user);     
-            navigate("/")
-            dispatch(fetchUserData(user,storedToken));
-            store.dispatch({ type: 'LOGIN_SUCCESS', payload: { token } });
+        axios.post(`http://localhost:8000/api/login/`, { 
+    email: email,
+    password: password,
+}).then(res => {
+    dispatch(setLoading(false));
+    toast("Login successful");
+    const userData = res.data.user; 
+    const storedToken = localStorage.getItem('token'); // Correct variable name
+    console.log(userData);
+    
+    dispatch(setUser(userData));
 
-        }).catch((err)=> {
-            console.log(err);
-            if(err.response?.status === 401){
-                return toast.error("Invalid Credentials")
-            }
-            toast.error("505 back end error ") 
-            dispatch(setLoading(false));
- 
-            //when code status is 3,4,5
-        })
+    navigate("/");
+    // dispatch(fetchUserData(userData, storedToken));
+
+}).catch(err => {
+    console.log(err);
+    if (err.response?.status === 401) {
+        return toast.error("Invalid Credentials");
+    }
+    toast.error("505 back end error ");
+    dispatch(setLoading(false));
+});
+
     }
     return<>
 
