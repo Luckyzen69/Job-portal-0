@@ -23,24 +23,24 @@ export default function Login({setProgress}){
     const {loading, error} = useSelector((state)=>state.user)
 
     
-      async (credentials) => {
-    const dispatch = useDispatch();
-    try {
-      // dispatch(setLoading());
-      const { token, user } = response.data;
-      localStorage.setItem('token', token);
+//       async (credentials) => {
+//     const dispatch = useDispatch();
+//     try {
+//       // dispatch(setLoading());
+//       const { token, user } = response.data;
+//       localStorage.setItem('token', token);
   
       
       
-      const response = await axios.get(`http://localhost:8000/api/login/`, credentials);
+//       const response = await axios.get(`http://localhost:8000/api/login/`, credentials);
       
-      console.log('user:', user);
-      console.log('token:', token);
-      dispatch(setUser(user));
-    } catch (error) {
-      dispatch(setError(error.message));
-    }
-  };  
+//       console.log('user:', user);
+//       console.log('token:', token);
+//       dispatch(setUser(user));
+//     } catch (error) {
+//       dispatch(setError(error.message));
+//     }
+//   };  
   
     
     // dispatch(setLoading(true));
@@ -48,14 +48,14 @@ export default function Login({setProgress}){
         // axios.defaults.withCredentials =true;
         e.preventDefault()
 
-        axios.post(`http://localhost:8000/api/login/`, { 
+        axios.post(`http://localhost:8000/api/login`, { 
     email: email,
     password: password,
 }).then(res => {
     dispatch(setLoading(false));
     toast("Login successful");
     const userData = res.data.user; 
-    const storedToken = localStorage.getItem('token'); // Correct variable name
+    // const token = localStorage.getItem('token'); // Correct variable name
     console.log(userData);
     
     dispatch(setUser(userData));

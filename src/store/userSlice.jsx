@@ -27,15 +27,21 @@ export const userSlice = createSlice({
 
 
 //  fetching user data
-export const fetchUserData = (user, token) => async (dispatch,credentials) => {
+export const fetchUserData = (user) => async (dispatch) => {
+ 
   try {
-    const storedToken = localStorage.getItem('token'); // Correct variable name
+    const token = response.data.token; // This line is likely causing the error
+localStorage.setItem('token', token);
 
     dispatch(setLoading());
     
     
-    const response = await axios.get(`http://localhost:8000/api/login/`, credentials);
-
+    const response = await axios.get('/api/login', {
+      headers: {
+        Authorization: `${token}`,
+      },
+    });
+    
     console.log('user:', user);
     console.log('token:', token);
 

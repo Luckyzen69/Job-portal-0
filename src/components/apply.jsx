@@ -3,6 +3,7 @@ import {AiOutlineEye} from 'react-icons/ai'
 import {BiPencil} from 'react-icons/bi'
 import {AiOutlineDelete} from 'react-icons/ai'
 export default function Apply(){
+ 
     return <>
         <h1 className="text-center font-bold text-xl m-4"> My Jobs Lists</h1>
     <div  className="flex-cols flex justify-center items-center">
