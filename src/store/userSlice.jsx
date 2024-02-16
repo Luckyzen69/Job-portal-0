@@ -30,13 +30,13 @@ export const userSlice = createSlice({
 export const fetchUserData = (user) => async (dispatch) => {
  
   try {
-    const token = response.data.token; // This line is likely causing the error
-localStorage.setItem('token', token);
+    const token = await response.data.token; // This line is likely causing the error
+         localStorage.setItem('token', token);
 
     dispatch(setLoading());
     
     
-    const response = await axios.get('/api/login', {
+    const response = await axios.get('/api/top', {
       headers: {
         Authorization: `${token}`,
       },
