@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import UserProfilePage from "./UserProfilePage"
 import { Link } from "react-router-dom";
+import UserProfilePage from './UserProfilePage';
 
 export default function Header({ setUser }) {
   // Retrieve user info from Redux store
@@ -48,6 +50,7 @@ export default function Header({ setUser }) {
           <div className=" flex flex-wrap gap-px text-xl">
             <>
               <Link to="/charts" className="mt-3 ml-10 sm:mr-2 hover:text-pink">Charts</Link>
+              <Link to="/userprofile">Profile</Link>
             </>
           </div>
         </div>
