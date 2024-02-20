@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "./authProvider";
 // import { fetchUserData } from "../store/";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";

@@ -1,8 +1,7 @@
 import React from 'react';
-import { useAuth } from '../auth/authProvider';
 
 export default function UserProfilePage(){
-    const { user } = useAuth();
+    const user = req.body.user
     return <>
     <div>
       <h2>User Profile</h2>

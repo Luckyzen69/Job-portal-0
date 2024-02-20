@@ -23,7 +23,6 @@ import Employers from "./FAQ/employer";
 import Jobseekers from "./FAQ/jobseeker";
 import FAQbanner from "./handleError/FAQbanner";
 import SearchData from "./FAQ/SearchData";
-import { AuthProvider } from "./auth/authProvider";
 import UserProfilePage from "./components/UserProfilePage";
 
 function App() {
@@ -40,9 +39,7 @@ function App() {
         onLoaderFinished={() => setProgress(0)}
       />
     
-        <AuthProvider>
-          
-              </AuthProvider>
+      
           <Routes>
            
               <Route path="/" element={<Home setProgress={setProgress} />} />

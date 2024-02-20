@@ -1,8 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import UserProfilePage from "./UserProfilePage"
 import { Link } from "react-router-dom";
-import UserProfilePage from './UserProfilePage';
 
 export default function Header({ setUser }) {
   // Retrieve user info from Redux store
